@@ -4,7 +4,7 @@
 
     <div class="row">
         <?php
-        include_once('../../functions/settings.php');
+        include_once('../functions/settings.php');
         include_once("../../config/settingBD.php");
         include_once($base_path . "functions/funciones.php");
 

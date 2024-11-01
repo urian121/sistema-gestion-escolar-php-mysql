@@ -17,8 +17,10 @@
     <ul class="navbar-nav navbar-nav-right">
       <li class="nav-item nav-profile dropdown d-none d-md-block">
         <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-          <i class="fa fa-user-circle-o"></i>
-          <div class="nav-profile-text"> Urian Viera </div>
+          <div class="nav-profile-text">
+            <i class="fa fa-user-circle-o"></i>
+            Urian Viera
+          </div>
         </a>
         <div class="dropdown-menu center navbar-dropdown" aria-labelledby="profileDropdown">
           <a class="dropdown-item" href="#">

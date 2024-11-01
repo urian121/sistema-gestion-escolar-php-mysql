@@ -3,14 +3,15 @@
 
 <head>
     <?php
-    include_once('../../functions/settings.php');
-    include_once($base_path . 'components/head.php');
+    include_once('../../config.php');
+    include_once('../functions/settings.php');
+    include_once(BASE_PATH_COMPONENTS . '/head.php');
     ?>
 </head>
 
 <body>
     <?php
-    include($base_path . 'components/loader.html');
+    include(BASE_PATH_COMPONENTS . '/loader.html');
 
     include_once($base_path . 'config/settingBD.php');
     include_once($base_path . "functions/funciones.php");
@@ -24,9 +25,9 @@
     ?>
 
     <div class="container-scroller">
-        <?php include($base_path . 'components/sidebar.php'); ?>
+        <?php include(BASE_PATH_COMPONENTS . '/sidebar.php'); ?>
         <div class="container-fluid page-body-wrapper">
-            <?php include($base_path . 'components/header.php'); ?>
+            <?php include(BASE_PATH_COMPONENTS . '/header.php'); ?>
             <div class="main-panel fade-in">
                 <div class="content-wrapper pb-0 justify-content-center">
                     <div class="row justify-content-center">
@@ -111,7 +112,7 @@
         </div>
     </div>
 
-    <?php include($base_path . 'components/footer.php'); ?>
+    <?php include(BASE_PATH_COMPONENTS . '/footer.php'); ?>
 
 </body>
 

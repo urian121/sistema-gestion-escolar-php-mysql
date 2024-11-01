@@ -1,5 +1,4 @@
 <?php
-
 if ($_SERVER['SERVER_NAME'] == 'localhost') {
     $base_path = $_SERVER['DOCUMENT_ROOT'] . '/vac.tecno-escuela-gaitan/';
     $base_static = "http://localhost/sistema-gestion-escolar-php-mysql/";
