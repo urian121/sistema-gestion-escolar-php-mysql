@@ -1,0 +1,128 @@
+/* Forms */
+
+.form-group {
+  margin-bottom: 2rem;
+}
+
+.input-group-append,
+.input-group-prepend {
+  color: $input-placeholder-color;
+  width: auto;
+  border: none;
+
+  .input-group-text {
+    border-color: $border-color;
+    padding: $input-padding-y .75rem;
+    font-size: 1.3rem !important;
+    color: $input-placeholder-color;
+  }
+
+  .btn {
+    height: 100%;
+  }
+}
+
+.form-control {
+  border: 1px solid $border-color;
+  font-family: $type-1;
+  font-weight: $font-weight-regular;
+  font-size: $input-font-size;
+  background-color: $form-focus-bg;
+
+  &:focus {
+    background-color: $form-focus-bg;
+    color: $form-focus-color;
+    outline: none;
+  }
+}
+
+.form-select {
+  border: 1px solid $border-color;
+  font-family: $type-1;
+  font-weight: $font-weight-regular;
+  // font-size: $input-font-size;
+
+  &:focus {
+    background-color: $form-focus-bg;
+    color: $form-focus-color;
+    outline: none;
+  }
+}
+
+select {
+  &.form-control {
+    padding: .4375rem .75rem;
+    border: 0;
+    outline: 1px solid $border-color;
+    color: $input-placeholder-color;
+    appearance: none;
+    background: url("../images/arrow-down.svg");
+    background-repeat: no-repeat;
+    background-position: 99% center;
+
+    &:focus {
+      outline: 1px solid $border-color;
+    }
+
+    @each $color, $value in $theme-colors {
+      &.border-#{$color} {
+        outline: 1px solid $value;
+
+        &:focus {
+          outline: 1px solid $value;
+        }
+      }
+    }
+  }
+
+  &.form-select {
+    padding: .4375rem .75rem;
+    border: 0;
+    outline: 1px solid $border-color;
+    color: $input-placeholder-color;
+    appearance: none;
+    background: url("../images/arrow-down.svg");
+    background-repeat: no-repeat;
+    background-position: 99% center;
+
+    &:focus {
+      outline: 1px solid $border-color;
+    }
+
+    @each $color, $value in $theme-colors {
+      &.border-#{$color} {
+        outline: 1px solid $value;
+
+        &:focus {
+          outline: 1px solid $value;
+        }
+      }
+    }
+  }
+}
+
+.form-group {
+  label {
+    font-size: $default-font-size;
+    line-height: 1;
+    vertical-align: top;
+    margin-bottom: .5rem;
+  }
+
+  &.has-danger {
+
+    .form-control,
+    .form-select {
+      border-color: $danger;
+    }
+  }
+
+  .file-upload-default {
+    visibility: hidden;
+    position: absolute;
+  }
+
+  .file-upload-info {
+    background: transparent;
+  }
+}

@@ -1,0 +1,67 @@
+ .heartBeatBar {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    height: 3px;
+    z-index: 9999 !important;
+    -webkit-animation:
+      growBar 0.3s linear forwards,
+      hideBar 0.3s ease-in-out 0.5s forwards;
+    animation:
+      growBar 0.3s linear forwards,
+      hideBar 0.3s ease-in-out 0.5s forwards;
+  }
+
+  @-webkit-keyframes growBar {
+    0% {
+      width: 0%;
+      background-color: rgb(252, 67, 67);
+    }
+    100% {
+      width: 100%;
+      background-color: red;
+    }
+  }
+
+  @keyframes growBar {
+    0% {
+      width: 0%;
+      background-color: red;
+    }
+    100% {
+      width: 100%;
+      background-color: rgb(252, 67, 67);
+    }
+  }
+
+  /* Nueva animación para ocultar la barra */
+  @-webkit-keyframes hideBar {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      visibility: hidden; /* Oculte la barra */
+    }
+  }
+
+  @keyframes hideBar {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      visibility: hidden; /* Oculte la barra */
+    }
+  }
+
+
+/** Efecto View Transitions - Animación de entrada y salida */
+.fade-in, .fade-out {
+    opacity: 1;
+    transition: opacity 0.5s ease; /* Ajusta a 0.3s para que sea más rápido */
+}
+
+.fade-out {
+    opacity: 0;
+}

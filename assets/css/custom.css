@@ -1,0 +1,55 @@
+.navbar .navbar-menu-wrapper{
+    background: #5e50f9 !important;
+}
+.navbar .navbar-menu-wrapper .navbar-toggler{
+    color: #fff !important;
+    background-color: #4a40b7 !important;
+}
+.table th{
+    padding: 10px !important;
+}
+.table td{
+    padding: 5px !important;
+}
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.fileUpload {
+    background-color: #f9f9f9;
+    border: 1px solid #e8e8e8;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	color: #333;
+	font-size: 1em;
+	overflow: hidden;
+	padding: 0.875em;
+	position: relative;
+	text-align: center;
+   cursor: pointer;
+}
+.fileUpload:hover, .fileUpload:active, .fileUpload:focus {
+  cursor: pointer;
+  opacity: 0.8;
+}
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    width: 148px;
+    height: 46px;
+  cursor: pointer;
+}
+
+input[type="file"] {
+    position: fixed;
+    right: 100%;
+    bottom: 100%;
+}
