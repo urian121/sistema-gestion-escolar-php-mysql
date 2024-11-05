@@ -70,7 +70,7 @@ if ($typeAction) {
         if (isset($_FILES['perfil_estudiante']) && $_FILES['perfil_estudiante']['error'] == UPLOAD_ERR_OK) {
             $extension = strtolower(pathinfo($_FILES['perfil_estudiante']['name'], PATHINFO_EXTENSION));
             $perfil_estudiante = substr(md5(uniqid(rand())), 0, 20) . ".$extension";
-            move_uploaded_file($_FILES['perfil_estudiante']['tmp_name'],  BASE_PATH . "assets/avatar_estudiantes/$perfil_estudiante");
+            move_uploaded_file($_FILES['perfil_estudiante']['tmp_name'], BASE_PATH_AVATAR_ESTUDIANTES . "/$perfil_estudiante");
         }
 
         if (
@@ -106,7 +106,7 @@ if ($typeAction) {
         if (isset($_FILES['avatar_profesor']) && $_FILES['avatar_profesor']['error'] == UPLOAD_ERR_OK) {
             $extension = strtolower(pathinfo($_FILES['avatar_profesor']['name'], PATHINFO_EXTENSION));
             $avatar_profesor = substr(md5(uniqid(rand())), 0, 20) . ".$extension";
-            move_uploaded_file($_FILES['avatar_profesor']['tmp_name'], BASE_PATH . "assets/avatar_profesores/$avatar_profesor");
+            move_uploaded_file($_FILES['avatar_profesor']['tmp_name'], BASE_PATH_AVATAR_PROFESORES . "/$avatar_profesor");
         }
 
         // Construcción de la consulta

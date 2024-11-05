@@ -151,11 +151,9 @@
     return $row;
   }
 
-  function btn_volver($link_black)
+  function btn_volver()
   {
-    echo '<a href="' . BASE_STATIC . $link_black . '" class="btn btn-inverse-dark mb-5">
-            <i class="fa fa-mail-reply"></i> Volver
-         </a>';
+    echo '<button type="button" class="btn btn-inverse-dark mb-5" onclick="window.history.back();"> <i class="fa fa-mail-reply"></i> Volver</button>';
   }
 
   function btn_cancelar($link_black)

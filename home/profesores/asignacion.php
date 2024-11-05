@@ -34,7 +34,7 @@
                         <div class="col-sm-12 stretch-card grid-margin">
                             <div class="card">
                                 <h3 class="px-4 mt-3">
-                                    <?php echo btn_volver('./'); ?>
+                                    <?php echo btn_volver(); ?>
                                     Profesor: <strong><?= $profeDetalles['nombre'] . ' ' . $profeDetalles['apellido'] ?></strong>
                                     <hr>
                                 </h3>
@@ -53,7 +53,7 @@
                                                         <li class="list-group-item" id="li_curso_<?= $curso['id_curso']; ?>" onclick="document.getElementById('curso_<?= $index; ?>').click();">
                                                             <label for="curso_<?= $index; ?>" class="d-flex justify-content-between align-items-center cursor-pointer">
                                                                 <span>
-                                                                    <input type="radio" name="cursos" id="curso_<?= $index; ?>" value="<?= $curso['id_curso'] ?>" style="cursor: pointer;">
+                                                                    <input class="custom_radio" type="radio" name="cursos" id="curso_<?= $index; ?>" value="<?= $curso['id_curso'] ?>" style="cursor: pointer;">
                                                                     <?= $curso['grado'] . ' ' . $curso['jornada'] . ' ' . $curso['seccion'] ?>
                                                                 </span>
                                                                 <span class="float-end">Matriculas (<?= $curso['total_materias'] ?? 0 ?>)</span>
@@ -63,23 +63,7 @@
                                                 </ul>
                                             </div>
                                             <div class="col-md-8">
-                                                <section id="cuerpo_materias">
-                                                    <?php
-                                                    $materias = getMaterias($servidor);
-                                                    include("get_materias_profesor.php");
-                                                    ?>
-                                                </section>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <hr>
-                                            <div class="col-md-4">
-                                                <div class="d-grid gap-2">
-                                                    <button type="submit" class="btn btn-primary" onclick="window.procesarAsignacion(event)">
-                                                        Asignar Nuevo Curso y Materias &nbsp; <i class="fa fa-mail-forward"></i>
-                                                    </button>
-                                                </div>
+                                                <section id="cuerpo_materias"></section>
                                             </div>
                                         </div>
                                     </form>

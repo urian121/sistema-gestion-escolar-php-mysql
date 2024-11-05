@@ -1,9 +1,14 @@
-<section id="materias">
-    <label for="cursos">Seleccionar las Materias</label>
+    <h4 class="fw-bold">
+        Seleccionar las Materias
+        <button style="float: right !important; margin-top: -15px;" type="submit" class="btn btn-primary" onclick="window.procesarAsignacion(event)">
+            Asignar Grado y Materias &nbsp; <i class="fa fa-mail-forward"></i>
+        </button>
+    </h4>
     <hr>
 
     <div class="row">
         <?php
+        include_once('../../config.php');
         include_once(SETTINGS_BD);
         include_once(BASE_PATH . "home/functions/funciones.php");
 
@@ -24,7 +29,7 @@
 
                     <li class="list-group-item">
                         <label for="materia_<?= $materia['id_materia'] ?>" style="cursor: pointer; font-size: 18px;">
-                            <input type="checkbox" name="materias[]" id="materia_<?= $materia['id_materia'] ?>" value="<?= $materia['id_materia'] ?>"
+                            <input class="custom_checkbox" type="checkbox" name="materias[]" id="materia_<?= $materia['id_materia'] ?>" value="<?= $materia['id_materia'] ?>"
                                 <?php if (in_array($materia['id_materia'], $idsMateriasProfe)) echo 'checked'; ?>>
                             <?= $materia['nombre_materia'] ?>
                         </label>
@@ -43,5 +48,5 @@
                 if ($counter % 3 !== 0) : ?>
             </ul>
     </div>
-<?php endif; ?>
-</section>
+    <?php endif; ?>
+    </section>

@@ -54,3 +54,11 @@ input[type="file"] {
     border-color: #7540b9 !important;
     color: #fff !important;
 }
+.custom_radio{
+    height: 20px;
+    width: 20px;
+}
+.custom_checkbox{
+    height: 20px;
+    width: 20px;
+}

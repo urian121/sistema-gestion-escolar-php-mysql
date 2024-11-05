@@ -34,13 +34,13 @@
                                 <div class="card-body">
                                     <div class="row justify-content-center">
                                         <div class="col-md-4">
-                                            <?php echo btn_volver('./'); ?>
+                                            <?php echo btn_volver(); ?>
 
-                                            <h4 class="card-title mb-3">
+                                            <h2 class="mb-3 text-center">
                                                 Detalles de Profesor:
                                                 <?= $profeDetalles['nombre'] . ' ' . $profeDetalles['apellido']; ?>
                                                 <hr>
-                                            </h4>
+                                            </h2>
 
                                             <div class="form-group">
                                                 <label for="Nombre del Profesor">Nombre del Profesor</label>

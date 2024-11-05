@@ -27,7 +27,7 @@ async function procesarCursoSeleccionado(radios) {
 
   try {
     let id_profesor = document.querySelector('input[name="id_profesor"]').value;
-    let divResp = document.querySelector("#materias");
+    let divResp = document.querySelector("#cuerpo_materias");
     let url = `get_materias_profesor.php?id_curso=${id_curso}&id_profesor=${id_profesor}`;
     if (url) {
       $(divResp).load(url, function () {

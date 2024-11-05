@@ -6,3 +6,5 @@ define('BASE_STATIC', 'http://' . $_SERVER['SERVER_NAME'] . '/sistema-gestion-es
 define('SETTINGS_BD', __DIR__ . '/config/settingBD.php');
 //define('SETTINGS_BD', 'http://' . $_SERVER['SERVER_NAME'] . '/sistema-gestion-escolar-php-mysql/config/settingBD.php');
 define('BASE_ACTIONS', 'http://' . $_SERVER['SERVER_NAME'] . '/sistema-gestion-escolar-php-mysql/home/functions/actionsBD.php');
+define('BASE_PATH_AVATAR_PROFESORES', BASE_PATH . '/assets/avatar_profesores');
+define('BASE_PATH_AVATAR_ESTUDIANTES', BASE_PATH . '/assets/avatar_estudiantes');

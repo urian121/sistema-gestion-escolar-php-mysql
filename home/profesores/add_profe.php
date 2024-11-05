@@ -37,12 +37,12 @@
                                 <div class="card-body">
                                     <div class="row justify-content-center">
                                         <div class="col-md-6">
-                                            <?php echo btn_volver('./'); ?>
+                                            <?php echo btn_volver(); ?>
 
-                                            <h4 class="card-title mb-3">
+                                            <h2 class="mb-3 text-center">
                                                 <?= $edit ? 'Editar Datos del Profesor' : 'Registrar Nuevo Profesor' ?>
                                                 <hr>
-                                            </h4>
+                                            </h2>
 
                                             <form method="POST" method="POST" action="<?= BASE_ACTIONS ?>" autocomplete="off" enctype="multipart/form-data">
                                                 <input type="hidden" name="action" value="<?= $edit ? 'editProfesor' : 'addProfesor' ?>">

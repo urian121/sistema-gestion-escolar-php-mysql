@@ -33,13 +33,13 @@
                                     <div class="row">
                                         <div class="col-md-4">
                                             <?php if ($edit):
-                                                echo btn_volver('./');
+                                                echo btn_volver();
                                             endif; ?>
 
-                                            <h4 class="card-title mt-3 mb-5">
+                                            <h2 class="mt-3 text-center mb-5">
                                                 <?= $edit ? 'Editar Curso' : 'Registrar Nuevo Curso' ?>
                                                 <hr>
-                                            </h4>
+                                            </h2>
 
                                             <form class="forms-sample" method="POST" action="<?= BASE_ACTIONS ?>" autocomplete="off">
                                                 <input type="hidden" name="action" value="<?= $edit ? 'editCurso' : 'addCurso' ?>">
