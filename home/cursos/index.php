@@ -40,7 +40,7 @@
                                                 <hr>
                                             </h4>
 
-                                            <form class="forms-sample" method="POST" action="<?= BASE_STATIC ?>functions/actionsBD.php" autocomplete="off">
+                                            <form class="forms-sample" method="POST" action="<?= BASE_ACTIONS ?>" autocomplete="off">
                                                 <input type="hidden" name="action" value="<?= $edit ? 'editCurso' : 'addCurso' ?>">
                                                 <input type="hidden" name="id_curso" value="<?= $edit ? $cursoDetalles['id_curso'] : '' ?>">
                                                 <div class="form-group">

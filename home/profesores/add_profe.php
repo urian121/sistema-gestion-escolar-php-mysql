@@ -44,7 +44,7 @@
                                                 <hr>
                                             </h4>
 
-                                            <form method="POST" method="POST" action="<?= BASE_STATIC ?>functions/actionsBD.php" autocomplete="off" enctype="multipart/form-data">
+                                            <form method="POST" method="POST" action="<?= BASE_ACTIONS ?>" autocomplete="off" enctype="multipart/form-data">
                                                 <input type="hidden" name="action" value="<?= $edit ? 'editProfesor' : 'addProfesor' ?>">
                                                 <?php
                                                 if ($edit): ?>

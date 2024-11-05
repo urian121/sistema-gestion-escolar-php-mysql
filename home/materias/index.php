@@ -41,7 +41,7 @@
                                                 <hr>
                                             </h4>
 
-                                            <form class="forms-sample" method="POST" action="<?= BASE_STATIC ?>functions/actionsBD.php" autocomplete="off">
+                                            <form class="forms-sample" method="POST" action="<?= BASE_ACTIONS ?>" autocomplete="off">
                                                 <input type="hidden" name="action" value="<?= $edit ? 'editMateria' : 'addMateria' ?>">
                                                 <input type="hidden" name="id_materia" value="<?= $edit ? $materiDetalles['id_materia'] : '' ?>">
                                                 <div class="form-group">

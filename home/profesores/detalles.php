@@ -60,13 +60,13 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <label>Imagen actual<br>
+                                                <label for="avatar_profesor" class="form-label text-center">Imagen actual<br> <br>
                                                     <?php
-                                                    $avatar = empty($profeDetalles['avatar_profesor'])
-                                                        ? '../assets/img/sin-avatar.png'
-                                                        : '../assets/avatar_profesores/' . $profeDetalles['avatar_profesor'];
+                                                    $avatar = empty($profe['avatar_profesor'])
+                                                        ? BASE_STATIC . 'assets/images/sin-avatar.png'
+                                                        : BASE_STATIC . 'assets/avatar_profesores/' . $profe['avatar_profesor'];
                                                     ?>
-                                                    <img src="<?= $avatar; ?>" alt="<?= $profeDetalles['nombre']; ?>" style="max-width: 50px; border-radius: 5%;">
+                                                    <img src="<?= $avatar; ?>" alt="<?= $profe['profesor_nombre']; ?>" style="max-width: 35px;">
                                                 </label>
                                             </div>
                                         </div>

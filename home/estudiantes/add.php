@@ -36,7 +36,7 @@
                                                 <hr>
                                             </h4>
 
-                                            <form method="POST" action="<?= BASE_STATIC ?>functions/actionsBD.php" autocomplete="off" enctype="multipart/form-data">
+                                            <form method="POST" action="<?= BASE_ACTIONS ?>" autocomplete="off" enctype="multipart/form-data">
                                                 <input type="hidden" name="action" value="<?= $edit ? 'editEstudiante' : 'addEstudiante' ?>">
                                                 <input type="hidden" name="id_estudiante" value="<?= $edit ? $estudianteDetalles['id_estudiante'] : '' ?>">
 

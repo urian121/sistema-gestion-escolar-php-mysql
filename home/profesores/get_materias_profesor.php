@@ -4,7 +4,7 @@
 
     <div class="row">
         <?php
-        include_once("../../config/settingBD.php");
+        include_once(SETTINGS_BD);
         include_once(BASE_PATH . "home/functions/funciones.php");
 
         $id_curso = $_REQUEST['id_curso'] ?? NULL;

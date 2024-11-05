@@ -1,5 +1,6 @@
   <?php
-
+  include_once('../../config.php');
+  
   function getMateriasCursoProfesor($servidor, $id_profesor, $id_curso)
   {
     $sql = "SELECT id_materia FROM tbl_profesores_materias WHERE id_profesor='$id_profesor' AND id_curso='$id_curso'";
