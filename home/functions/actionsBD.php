@@ -3,9 +3,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-include_once('../functions/settings.php');
 require_once('../config/settingBD.php');
-
 
 // Función genérica para escapado de datos
 function escapeData($data, $servidor)
@@ -40,7 +38,7 @@ if ($typeAction) {
             $id_materia = escapeData($_POST['id_materia'], $servidor);
             $query = "UPDATE tbl_materias SET nombre_materia = '$materia' WHERE id_materia = '$id_materia'";
         }
-        echo executeQuery($servidor, $query, $base_static . 'home/materias/');
+        echo executeQuery($servidor, $query, BASE_STATIC . 'home/materias/');
     }
 
     // Agregar o editar curso
@@ -55,7 +53,7 @@ if ($typeAction) {
             $id_curso = escapeData($_POST['id_curso'], $servidor);
             $query = "UPDATE tbl_cursos SET grado = '$grado', jornada = '$jornada', seccion = '$seccion' WHERE id_curso = '$id_curso'";
         }
-        echo executeQuery($servidor, $query,  $base_static . 'home/cursos/');
+        echo executeQuery($servidor, $query,  BASE_STATIC . 'home/cursos/');
     }
 
     # Agregar o editar Estudiante
@@ -72,7 +70,7 @@ if ($typeAction) {
         if (isset($_FILES['perfil_estudiante']) && $_FILES['perfil_estudiante']['error'] == UPLOAD_ERR_OK) {
             $extension = strtolower(pathinfo($_FILES['perfil_estudiante']['name'], PATHINFO_EXTENSION));
             $perfil_estudiante = substr(md5(uniqid(rand())), 0, 20) . ".$extension";
-            move_uploaded_file($_FILES['perfil_estudiante']['tmp_name'],  $base_path . "assets/avatar_estudiantes/$perfil_estudiante");
+            move_uploaded_file($_FILES['perfil_estudiante']['tmp_name'],  BASE_PATH . "assets/avatar_estudiantes/$perfil_estudiante");
         }
 
         if (
@@ -91,7 +89,7 @@ if ($typeAction) {
             " WHERE id_estudiante = '$id_estudiante'";
         }
 
-        echo executeQuery($servidor, $query,  $base_static . 'home/estudiantes/');
+        echo executeQuery($servidor, $query,  BASE_STATIC . 'home/estudiantes/');
     }
     
     // Agregar o editar Profesor
@@ -108,7 +106,7 @@ if ($typeAction) {
         if (isset($_FILES['avatar_profesor']) && $_FILES['avatar_profesor']['error'] == UPLOAD_ERR_OK) {
             $extension = strtolower(pathinfo($_FILES['avatar_profesor']['name'], PATHINFO_EXTENSION));
             $avatar_profesor = substr(md5(uniqid(rand())), 0, 20) . ".$extension";
-            move_uploaded_file($_FILES['avatar_profesor']['tmp_name'], $base_path . "assets/avatar_profesores/$avatar_profesor");
+            move_uploaded_file($_FILES['avatar_profesor']['tmp_name'], BASE_PATH . "assets/avatar_profesores/$avatar_profesor");
         }
 
         // Construcción de la consulta
@@ -124,7 +122,7 @@ if ($typeAction) {
             " WHERE id_profesor = '$id_profesor'";
 
         // Ejecutar consulta
-        echo executeQuery($servidor, $query,  $base_static . 'home/profesores/');
+        echo executeQuery($servidor, $query,  BASE_STATIC . 'home/profesores/');
     }
 
 }

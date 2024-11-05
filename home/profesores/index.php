@@ -4,7 +4,6 @@
 <head>
     <?php
     include_once('../../config.php');
-    include_once('../functions/settings.php');
     include_once(BASE_PATH_COMPONENTS . '/head.php');
     ?>
 </head>
@@ -13,8 +12,8 @@
     <?php
     include(BASE_PATH_COMPONENTS . '/loader.html');
 
-    include_once($base_path . 'config/settingBD.php');
-    include_once($base_path . "functions/funciones.php");
+    include_once(SETTINGS_BD);
+    include_once(BASE_PATH . "home/functions/funciones.php");
     $profesores = getProfesores($servidor);
 
     $edit = isset($_GET['id_curso']);
@@ -22,9 +21,7 @@
     ?>
 
     <div class="container-scroller">
-        <?php
-        include(BASE_PATH_COMPONENTS . '/sidebar.php');
-        ?>
+        <?php include(BASE_PATH_COMPONENTS . '/sidebar.php'); ?>
         <div class="container-fluid page-body-wrapper">
             <?php include(BASE_PATH_COMPONENTS . '/header.php'); ?>
             <div class="main-panel fade-in">
@@ -69,8 +66,8 @@
                                                                     <td class="text-center">
                                                                         <?php
                                                                         $avatar = empty($profe['avatar_profesor'])
-                                                                            ? $base_static . 'assets/images/sin-avatar.png'
-                                                                            : $base_static . 'assets/avatar_profesores/' . $profe['avatar_profesor'];
+                                                                            ? BASE_STATIC . 'assets/images/sin-avatar.png'
+                                                                            : BASE_STATIC . 'assets/avatar_profesores/' . $profe['avatar_profesor'];
                                                                         ?>
                                                                         <img src="<?= $avatar; ?>" alt="<?= $profe['profesor_nombre']; ?>" style="max-width: 35px;">
                                                                     </td>

@@ -4,7 +4,6 @@
 <head>
     <?php
     include_once('../../config.php');
-    include_once('../functions/settings.php');
     include_once(BASE_PATH_COMPONENTS . '/head.php');
     ?>
 </head>
@@ -12,8 +11,8 @@
 <body>
     <?php
     include(BASE_PATH_COMPONENTS . '/loader.html');
-    include_once($base_path . 'config/settingBD.php');
-    include_once($base_path . "functions/funciones.php");
+    include_once(SETTINGS_BD);
+    include_once(BASE_PATH . "home/functions/funciones.php");
 
     $edit = isset($_GET['id_estudiante']);
     $estudianteDetalles = $edit ? getEstudiante($servidor, $_GET['id_estudiante']) : [];
@@ -37,7 +36,7 @@
                                                 <hr>
                                             </h4>
 
-                                            <form method="POST" action="<?= $base_static ?>functions/actionsBD.php" autocomplete="off" enctype="multipart/form-data">
+                                            <form method="POST" action="<?= BASE_STATIC ?>functions/actionsBD.php" autocomplete="off" enctype="multipart/form-data">
                                                 <input type="hidden" name="action" value="<?= $edit ? 'editEstudiante' : 'addEstudiante' ?>">
                                                 <input type="hidden" name="id_estudiante" value="<?= $edit ? $estudianteDetalles['id_estudiante'] : '' ?>">
 

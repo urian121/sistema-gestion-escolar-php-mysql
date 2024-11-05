@@ -1,18 +1,18 @@
- <script src="<?php echo $base_static; ?>assets/vendors/js/vendor.bundle.base.js?v=<?php echo mt_rand(); ?>"></script>
+ <script src="<?php echo BASE_STATIC; ?>assets/vendors/js/vendor.bundle.base.js?v=<?php echo mt_rand(); ?>"></script>
 
- <script src="<?php echo $base_static; ?>assets/vendors/chart.js/chart.umd.js?v=<?php echo mt_rand(); ?>"></script>
- <script src="<?php echo $base_static; ?>assets/vendors/flot/jquery.flot.js?v=<?php echo mt_rand(); ?>"></script>
- <script src="<?php echo $base_static; ?>assets/vendors/flot/jquery.flot.resize.js?v=<?php echo mt_rand(); ?>"></script>
- <script src="<?php echo $base_static; ?>assets/vendors/flot/jquery.flot.categories.js?v=<?php echo mt_rand(); ?>"></script>
- <script src="<?php echo $base_static; ?>assets/vendors/flot/jquery.flot.fillbetween.js?v=<?php echo mt_rand(); ?>"></script>
- <script src="<?php echo $base_static; ?>assets/vendors/flot/jquery.flot.stack.js?v=<?php echo mt_rand(); ?>"></script>
- <script src="<?php echo $base_static; ?>assets/js/jquery.cookie.js" type="text/javascript?v=<?php echo mt_rand(); ?>"></script>
+ <script src="<?php echo BASE_STATIC; ?>assets/vendors/chart.js/chart.umd.js?v=<?php echo mt_rand(); ?>"></script>
+ <script src="<?php echo BASE_STATIC; ?>assets/vendors/flot/jquery.flot.js?v=<?php echo mt_rand(); ?>"></script>
+ <script src="<?php echo BASE_STATIC; ?>assets/vendors/flot/jquery.flot.resize.js?v=<?php echo mt_rand(); ?>"></script>
+ <script src="<?php echo BASE_STATIC; ?>assets/vendors/flot/jquery.flot.categories.js?v=<?php echo mt_rand(); ?>"></script>
+ <script src="<?php echo BASE_STATIC; ?>assets/vendors/flot/jquery.flot.fillbetween.js?v=<?php echo mt_rand(); ?>"></script>
+ <script src="<?php echo BASE_STATIC; ?>assets/vendors/flot/jquery.flot.stack.js?v=<?php echo mt_rand(); ?>"></script>
+ <script src="<?php echo BASE_STATIC; ?>assets/js/jquery.cookie.js" type="text/javascript?v=<?php echo mt_rand(); ?>"></script>
 
- <script src="<?php echo $base_static; ?>assets/js/off-canvas.js?v=<?php echo mt_rand(); ?>"></script>
- <script src="<?php echo $base_static; ?>assets/js/misc.js?v=<?php echo mt_rand(); ?>"></script>
- <script src="<?php echo $base_static; ?>assets/js/settings.js?v=<?php echo mt_rand(); ?>"></script>
- <script src="<?php echo $base_static; ?>assets/js/todolist.js?v=<?php echo mt_rand(); ?>"></script>
- <script src="<?php echo $base_static; ?>assets/js/hoverable-collapse.js?v=<?php echo mt_rand(); ?>"></script>
+ <script src="<?php echo BASE_STATIC; ?>assets/js/off-canvas.js?v=<?php echo mt_rand(); ?>"></script>
+ <script src="<?php echo BASE_STATIC; ?>assets/js/misc.js?v=<?php echo mt_rand(); ?>"></script>
+ <script src="<?php echo BASE_STATIC; ?>assets/js/settings.js?v=<?php echo mt_rand(); ?>"></script>
+ <script src="<?php echo BASE_STATIC; ?>assets/js/todolist.js?v=<?php echo mt_rand(); ?>"></script>
+ <script src="<?php echo BASE_STATIC; ?>assets/js/hoverable-collapse.js?v=<?php echo mt_rand(); ?>"></script>
 
 
  <script src="https://cdn.datatables.net/2.0.3/js/dataTables.js"></script>
@@ -55,13 +55,13 @@
 
 
          const currentPath = window.location.pathname;
-         const baseUrl = "<?php echo $base_static; ?>";
+         const baseUrl = "<?php echo BASE_STATIC; ?>";
          const navLinks = document.querySelectorAll('.nav-link');
 
          console.log("Current Path:", currentPath); // Para verificar el valor
 
          navLinks.forEach(link => {
-             // Combina el $base_static con el href del enlace para obtener la URL completa
+             // Combina el BASE_STATIC con el href del enlace para obtener la URL completa
              const linkPath = new URL(link.getAttribute('href'), baseUrl).pathname;
 
              console.log("Link Path:", linkPath); // Para verificar el valor

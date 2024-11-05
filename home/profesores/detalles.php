@@ -4,7 +4,6 @@
 <head>
     <?php
     include_once('../../config.php');
-    include_once('../functions/settings.php');
     include_once(BASE_PATH_COMPONENTS . '/head.php');
     ?>
 </head>
@@ -12,9 +11,8 @@
 <body>
     <?php
     include(BASE_PATH_COMPONENTS . '/loader.html');
-
-    include_once($base_path . 'config/settingBD.php');
-    include_once($base_path . "functions/funciones.php");
+    include_once(SETTINGS_BD);
+    include_once(BASE_PATH . "home/functions/funciones.php");
 
     if (isset($_GET['profe']) || !empty($_GET['profe'])) {
         $profeDetalles = getProfesor($servidor, $_GET['profe']) ?? [];

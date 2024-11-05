@@ -4,7 +4,6 @@
 <head>
     <?php
     include_once('../../config.php');
-    include_once('../functions/settings.php');
     include_once(BASE_PATH_COMPONENTS . '/head.php');
     ?>
 </head>
@@ -12,9 +11,8 @@
 <body>
     <?php
     include(BASE_PATH_COMPONENTS . '/loader.html');
-
-    include_once($base_path . 'config/settingBD.php');
-    include_once($base_path . "functions/funciones.php");
+    include_once(SETTINGS_BD);
+    include_once(BASE_PATH . "home/functions/funciones.php");
     $estudiantes = getEstudiantes($servidor);
 
     $edit = isset($_GET['id_curso']);
@@ -22,9 +20,7 @@
     ?>
 
     <div class="container-scroller">
-        <?php
-        include(BASE_PATH_COMPONENTS . '/sidebar.php');
-        ?>
+        <?php include(BASE_PATH_COMPONENTS . '/sidebar.php'); ?>
         <div class="container-fluid page-body-wrapper">
             <?php include(BASE_PATH_COMPONENTS . '/header.php'); ?>
             <div class="main-panel fade-in">
@@ -68,8 +64,8 @@
                                                                     <td>
                                                                         <?php
                                                                         $avatar = empty($estudiante['perfil_estudiante'])
-                                                                            ? $base_static . 'assets/images/sin-avatar.png'
-                                                                            : $base_static . 'assets/avatar_estudiantes/' . $estudiante['perfil_estudiante'];
+                                                                            ? BASE_STATIC . 'assets/images/sin-avatar.png'
+                                                                            : BASE_STATIC . 'assets/avatar_estudiantes/' . $estudiante['perfil_estudiante'];
                                                                         ?>
                                                                         <img src="<?= $avatar; ?>" alt="<?= $estudiante['perfil_estudiante']; ?>" style="max-width: 35px; border-radius: 5px;">
                                                                     </td>

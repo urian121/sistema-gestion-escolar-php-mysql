@@ -149,4 +149,19 @@
     $row = $result->fetch_assoc();
     return $row;
   }
+
+  function btn_volver($link_black)
+  {
+    echo '<a href="' . BASE_STATIC . $link_black . '" class="btn btn-inverse-dark mb-5">
+            <i class="fa fa-mail-reply"></i> Volver
+         </a>';
+  }
+
+  function btn_cancelar($link_black)
+  {
+    echo '<button type="button" class="btn btn-secondary" onclick="window.location.href=\'' . BASE_STATIC . $link_black . '\'">
+                Cancelar
+                <i class="fa fa-times ms-2" style="color: #4d4a4a;"></i>
+            </button>';
+  }
   ?>

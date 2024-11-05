@@ -9,8 +9,8 @@
     </button>
     <div
       class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-      <a class="navbar-brand brand-logo-mini" href="<?php echo $base_static; ?>">
-        <img src="<?php echo $base_static; ?>assets/images/logo-mini.svg" alt="logo" />
+      <a class="navbar-brand brand-logo-mini" href="<?php echo BASE_STATIC; ?>">
+        <img src="<?php echo BASE_STATIC; ?>assets/images/logo-mini.svg" alt="logo" />
       </a>
     </div>
 

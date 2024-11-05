@@ -4,7 +4,6 @@
 <head>
     <?php
     include_once('../../config.php');
-    include_once('../functions/settings.php');
     include_once(BASE_PATH_COMPONENTS . '/head.php');
     ?>
 </head>
@@ -12,9 +11,8 @@
 <body>
     <?php
     include(BASE_PATH_COMPONENTS . '/loader.html');
-
-    include_once($base_path . 'config/settingBD.php');
-    include_once($base_path . "functions/funciones.php");
+    include_once(SETTINGS_BD);
+    include_once(BASE_PATH . "home/functions/funciones.php");
 
     $materias = getMaterias($servidor);
 
@@ -43,7 +41,7 @@
                                                 <hr>
                                             </h4>
 
-                                            <form class="forms-sample" method="POST" action="<?= $base_static ?>functions/actionsBD.php" autocomplete="off">
+                                            <form class="forms-sample" method="POST" action="<?= BASE_STATIC ?>functions/actionsBD.php" autocomplete="off">
                                                 <input type="hidden" name="action" value="<?= $edit ? 'editMateria' : 'addMateria' ?>">
                                                 <input type="hidden" name="id_materia" value="<?= $edit ? $materiDetalles['id_materia'] : '' ?>">
                                                 <div class="form-group">
@@ -54,7 +52,7 @@
                                                     <button type="submit" class="btn btn-primary me-2">
                                                         <?= $edit ? 'Guardar Cambios' : 'Crear NuevaMateria' ?>
                                                     </button>
-                                                    <?php echo btn_cancelar($base_static); ?>
+                                                    <?php echo btn_cancelar(BASE_STATIC); ?>
                                                 </div>
                                             </form>
                                         </div>

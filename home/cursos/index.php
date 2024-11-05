@@ -4,7 +4,6 @@
 <head>
     <?php
     include_once('../../config.php');
-    include_once('../functions/settings.php');
     include_once(BASE_PATH_COMPONENTS . '/head.php');
     ?>
 </head>
@@ -12,23 +11,18 @@
 <body>
     <?php
     include(BASE_PATH_COMPONENTS . '/loader.html');
-
-    include_once(BASE_PATH . '/config/settingBD.php');
+    include_once(SETTINGS_BD);
     include_once(BASE_PATH . "/home/functions/funciones.php");
 
     $cursos = getCursos($servidor);
-
     $edit = isset($_GET['id_curso']);
     $cursoDetalles = $edit ? getCurso($servidor, $_GET['id_curso']) : [];
     ?>
 
     <div class="container-scroller">
-        <?php
-        include_once(BASE_PATH_COMPONENTS . '/sidebar.php');
-        ?>
+        <?php include_once(BASE_PATH_COMPONENTS . '/sidebar.php'); ?>
         <div class="container-fluid page-body-wrapper">
-            <?php include(BASE_PATH_COMPONENTS . '/header.php');
-            ?>
+            <?php include(BASE_PATH_COMPONENTS . '/header.php'); ?>
             <div class="main-panel fade-in">
                 <div class="content-wrapper pb-0 justify-content-center">
                     <div class="row justify-content-center">
@@ -46,7 +40,7 @@
                                                 <hr>
                                             </h4>
 
-                                            <form class="forms-sample" method="POST" action="<?= $base_static ?>functions/actionsBD.php" autocomplete="off">
+                                            <form class="forms-sample" method="POST" action="<?= BASE_STATIC ?>functions/actionsBD.php" autocomplete="off">
                                                 <input type="hidden" name="action" value="<?= $edit ? 'editCurso' : 'addCurso' ?>">
                                                 <input type="hidden" name="id_curso" value="<?= $edit ? $cursoDetalles['id_curso'] : '' ?>">
                                                 <div class="form-group">
@@ -69,7 +63,7 @@
 
                                                 <div class="d-grid gap-2 d-md-flex justify-content-center">
                                                     <button type="submit" class="btn btn-primary me-2"> <?= $edit ? 'Guardar Cambios' : 'Crear Nuevo Grado' ?></button>
-                                                    <?php echo btn_cancelar($base_static); ?>
+                                                    <?php echo btn_cancelar(BASE_STATIC); ?>
                                                 </div>
                                             </form>
                                         </div>

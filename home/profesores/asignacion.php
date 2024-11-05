@@ -4,7 +4,6 @@
 <head>
     <?php
     include_once('../../config.php');
-    include_once('../functions/settings.php');
     include_once(BASE_PATH_COMPONENTS . '/head.php');
     ?>
 </head>
@@ -12,9 +11,8 @@
 <body>
     <?php
     include(BASE_PATH_COMPONENTS . '/loader.html');
-
-    include_once($base_path . 'config/settingBD.php');
-    include_once($base_path . "functions/funciones.php");
+    include_once(SETTINGS_BD);
+    include_once(BASE_PATH . "home/functions/funciones.php");
 
     if (!isset($_GET['profesor']) || empty($_GET['profesor'])) {
         echo '<script>window.location = "../index.php";</script>';
@@ -41,7 +39,7 @@
                                     <hr>
                                 </h3>
                                 <div class="card-body">
-                                    <form action="<?= $base_static ?>profesores/recibe_asignacion.php" method="POST">
+                                    <form action="<?= BASE_STATIC ?>profesores/recibe_asignacion.php" method="POST">
                                         <input type="hidden" name="id_profesor" value="<?= $id_profesor ?>">
                                         <div class="row">
                                             <div class="col-md-4">
@@ -96,8 +94,8 @@
 
 
     <?php include(BASE_PATH_COMPONENTS . '/footer.php'); ?>
-    <script src="<?= $base_static ?>assets/js/axios.min.js?v=<?= mt_rand() ?>"></script>
-    <script src="<?= $base_static ?>assets/js/asignacion_curso_materias_profe.js?v=<?= mt_rand() ?>"></script>
+    <script src="<?= BASE_STATIC ?>assets/js/axios.min.js?v=<?= mt_rand() ?>"></script>
+    <script src="<?= BASE_STATIC ?>assets/js/asignacion_curso_materias_profe.js?v=<?= mt_rand() ?>"></script>
 
 </body>
 

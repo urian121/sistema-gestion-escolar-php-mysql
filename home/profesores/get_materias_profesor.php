@@ -4,9 +4,8 @@
 
     <div class="row">
         <?php
-        include_once('../functions/settings.php');
         include_once("../../config/settingBD.php");
-        include_once($base_path . "functions/funciones.php");
+        include_once(BASE_PATH . "home/functions/funciones.php");
 
         $id_curso = $_REQUEST['id_curso'] ?? NULL;
         $id_profesor = $_REQUEST['id_profesor'] ?? NULL;

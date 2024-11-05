@@ -1,10 +1,3 @@
-.navbar .navbar-menu-wrapper{
-    background: #5e50f9 !important;
-}
-.navbar .navbar-menu-wrapper .navbar-toggler{
-    color: #fff !important;
-    background-color: #4a40b7 !important;
-}
 .table th{
     padding: 10px !important;
 }
@@ -52,4 +45,12 @@ input[type="file"] {
     position: fixed;
     right: 100%;
     bottom: 100%;
+}
+.page-link{
+    color: #7540b9 !important;
+}
+.active > .page-link{
+    background-color: #7540b9 !important;
+    border-color: #7540b9 !important;
+    color: #fff !important;
 }

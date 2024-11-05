@@ -4,7 +4,6 @@
 <head>
     <?php
     include_once('../../config.php');
-    include_once('../functions/settings.php');
     include_once(BASE_PATH_COMPONENTS . '/head.php');
     ?>
 </head>
@@ -12,9 +11,8 @@
 <body>
     <?php
     include(BASE_PATH_COMPONENTS . '/loader.html');
-
-    include_once($base_path . 'config/settingBD.php');
-    include_once($base_path . "functions/funciones.php");
+    include_once(SETTINGS_BD);
+    include_once(BASE_PATH . "home/functions/funciones.php");
 
     $edit = false;
     if (isset($_GET['edit_profe']) || !empty($_GET['edit_profe'])) {
@@ -46,7 +44,7 @@
                                                 <hr>
                                             </h4>
 
-                                            <form method="POST" method="POST" action="<?= $base_static ?>functions/actionsBD.php" autocomplete="off" enctype="multipart/form-data">
+                                            <form method="POST" method="POST" action="<?= BASE_STATIC ?>functions/actionsBD.php" autocomplete="off" enctype="multipart/form-data">
                                                 <input type="hidden" name="action" value="<?= $edit ? 'editProfesor' : 'addProfesor' ?>">
                                                 <?php
                                                 if ($edit): ?>
@@ -95,8 +93,8 @@
                                                             <label>Imagen actual<br>
                                                                 <?php
                                                                 $avatar = empty($profeDetalles['avatar_profesor'])
-                                                                    ?  $base_static . 'assets/images/sin-avatar.png'
-                                                                    : $base_static . 'assets/avatar_profesores/' . $profeDetalles['avatar_profesor'];
+                                                                    ?  BASE_STATIC . 'assets/images/sin-avatar.png'
+                                                                    : BASE_STATIC . 'assets/avatar_profesores/' . $profeDetalles['avatar_profesor'];
                                                                 ?>
                                                                 <img src="<?= $avatar; ?>" alt="<?= $profeDetalles['nombre']; ?>" style="max-width: 50px;">
                                                             </label>

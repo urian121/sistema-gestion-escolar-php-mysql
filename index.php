@@ -4,7 +4,6 @@
 <head>
   <?php
   include_once('config.php');
-  include_once('home/functions/settings.php');
   include_once(BASE_PATH_COMPONENTS . '/head.php'); ?>
 </head>
 
