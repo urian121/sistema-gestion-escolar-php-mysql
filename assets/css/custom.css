@@ -8,44 +8,34 @@
     cursor: pointer;
 }
 
-.fileUpload {
-    background-color: #f9f9f9;
-    border: 1px solid #e8e8e8;
-	-webkit-border-radius: 15px;
-	-moz-border-radius: 15px;
-	border-radius: 15px;
-	color: #333;
-	font-size: 1em;
-	overflow: hidden;
-	padding: 0.875em;
-	position: relative;
-	text-align: center;
-   cursor: pointer;
-}
-.fileUpload:hover, .fileUpload:active, .fileUpload:focus {
-  cursor: pointer;
-  opacity: 0.8;
-}
-.fileUpload input.upload {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 0;
-    padding: 0;
-    font-size: 20px;
-    cursor: pointer;
-    opacity: 0;
-    filter: alpha(opacity=0);
-    width: 148px;
-    height: 46px;
-  cursor: pointer;
+/** custom file */
+.file-input__input {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
 }
 
-input[type="file"] {
-    position: fixed;
-    right: 100%;
-    bottom: 100%;
+.file-input__label {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  font-size: 14px;
+  padding: 10px 12px;
+  background-color: #4245a8;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25);
 }
+.file-input__label:hover{
+    background-color: #4e55b3;
+}
+/** fin del custom file */
+
 .page-link{
     color: #7540b9 !important;
 }

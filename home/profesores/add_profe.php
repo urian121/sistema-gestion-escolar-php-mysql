@@ -81,11 +81,16 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="row mb-5">
-                                                    <div class="col-md-6 fileUpload">
-                                                        <label for="avatar_profesor">Imagen de Perfil
-                                                            <input type="file" name="avatar_profesor" id="avatar_profesor" class="show-for-sr small upload" accept=".png, .jpg, .jpeg">
-                                                        </label>
+                                                <div class="row mb-6">
+                                                    <div class="col-md-5">
+                                                        <div class="file-input">
+                                                            <label for="avatar_profe" class="mb-2">Imagen de Perfil</label>
+                                                            <br>
+                                                            <input type="file" name="avatar_profe" id="file-input" class="file-input__input" accept=".png, .jpg, .jpeg" />
+                                                            <label class="file-input__label" for="file-input">
+                                                                <i class="fa fa-cloud-upload"></i> &nbsp;
+                                                                <span>Subir Imagen</span></label>
+                                                        </div>
                                                     </div>
                                                     <?php
                                                     if ($edit) { ?>
