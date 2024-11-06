@@ -52,7 +52,7 @@
                                                     <button type="submit" class="btn btn-primary me-2">
                                                         <?= $edit ? 'Guardar Cambios' : 'Crear NuevaMateria' ?>
                                                     </button>
-                                                    <?php echo btn_cancelar(BASE_STATIC); ?>
+                                                    <?php echo btn_cancelar(BASE_HOME); ?>
                                                 </div>
                                             </form>
                                         </div>

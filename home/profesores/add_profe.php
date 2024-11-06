@@ -82,14 +82,14 @@
                                                 </div>
 
                                                 <div class="row mb-5">
-                                                    <div class="col-md-8">
+                                                    <div class="col-md-6 fileUpload">
                                                         <label for="avatar_profesor">Imagen de Perfil
-                                                            <input type="file" name="avatar_profesor" id="avatar_profesor" class="show-for-sr small" accept=".png, .jpg, .jpeg">
+                                                            <input type="file" name="avatar_profesor" id="avatar_profesor" class="show-for-sr small upload" accept=".png, .jpg, .jpeg">
                                                         </label>
                                                     </div>
                                                     <?php
                                                     if ($edit) { ?>
-                                                        <div class="col-md-4">
+                                                        <div class="col-md-6">
                                                             <label>Imagen actual<br>
                                                                 <?php
                                                                 $avatar = empty($profeDetalles['avatar_profesor'])
@@ -107,7 +107,7 @@
                                                         <?= $edit ? 'Guardar Nuevos Cambios' : 'Crear Nuevo Profesor' ?>
                                                         &nbsp; <i class="fa fa-rotate-right ms-2"></i>
                                                     </button>
-                                                    <?php echo btn_cancelar('./'); ?>
+                                                    <?php echo btn_cancelar(BASE_HOME); ?>
                                                 </div>
                                             </form>
                                         </div>

@@ -23500,7 +23500,7 @@ select.form-select {
   padding: 0.4375rem 0.75rem;
   border: 0;
   outline: 1px solid #e4e9f0;
-  color: #c9c8c8;
+  color: #444;
   appearance: none;
   background: url("../images/arrow-down.svg");
   background-repeat: no-repeat;

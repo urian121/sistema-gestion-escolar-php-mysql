@@ -63,7 +63,7 @@
 
                                                 <div class="d-grid gap-2 d-md-flex justify-content-center">
                                                     <button type="submit" class="btn btn-primary me-2"> <?= $edit ? 'Guardar Cambios' : 'Crear Nuevo Grado' ?></button>
-                                                    <?php echo btn_cancelar(BASE_STATIC); ?>
+                                                    <?php echo btn_cancelar(BASE_HOME); ?>
                                                 </div>
                                             </form>
                                         </div>
