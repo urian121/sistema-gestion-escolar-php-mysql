@@ -3,7 +3,7 @@
 
 <head>
     <?php
-    include_once('../../config.php');
+    include_once '../../settings/config.php';
     include_once(BASE_PATH_COMPONENTS . '/head.php');
     ?>
 </head>
@@ -84,12 +84,13 @@
                                                 <div class="row mb-6">
                                                     <div class="col-md-5">
                                                         <div class="file-input">
-                                                            <label for="avatar_profe" class="mb-2">Imagen de Perfil</label>
+                                                            <label for="avatar_profesor" class="mb-2">Imagen de Perfil</label>
                                                             <br>
-                                                            <input type="file" name="avatar_profe" id="file-input" class="file-input__input" accept=".png, .jpg, .jpeg" />
-                                                            <label class="file-input__label" for="file-input">
+                                                            <input type="file" name="avatar_profesor" id="file-input-avatar" class="file-input__input" accept=".png, .jpg, .jpeg" />
+                                                            <label class="file-input__label" for="file-input-avatar">
                                                                 <i class="fa fa-cloud-upload"></i> &nbsp;
-                                                                <span>Subir Imagen</span></label>
+                                                                <span>Subir Imagen</span>
+                                                            </label>
                                                         </div>
                                                     </div>
                                                     <?php
@@ -107,7 +108,7 @@
                                                     <?php } ?>
                                                 </div>
 
-                                                <div class="d-grid gap-2 d-md-flex justify-content-center">
+                                                <div class="d-grid gap-2 d-md-flex justify-content-center mt-5">
                                                     <button type="submit" class="btn btn-primary ">
                                                         <?= $edit ? 'Guardar Nuevos Cambios' : 'Crear Nuevo Profesor' ?>
                                                         &nbsp; <i class="fa fa-rotate-right ms-2"></i>

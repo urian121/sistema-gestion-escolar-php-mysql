@@ -8,7 +8,7 @@
 
     <div class="row">
         <?php
-        include_once('../../config.php');
+        include_once '../../settings/config.php';
         include_once(SETTINGS_BD);
         include_once(BASE_PATH . "home/functions/funciones.php");
 

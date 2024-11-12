@@ -3,7 +3,7 @@
 
 <head>
     <?php
-    include_once('../../config.php');
+    include_once '../../settings/config.php';
     include_once(BASE_PATH_COMPONENTS . '/head.php');
     ?>
 </head>
@@ -62,11 +62,11 @@
                                             <div class="form-group">
                                                 <label for="avatar_profesor" class="form-label text-center">Imagen actual<br> <br>
                                                     <?php
-                                                    $avatar = empty($profe['avatar_profesor'])
+                                                    $avatar = empty($profeDetalles['avatar_profesor'])
                                                         ? BASE_STATIC . 'assets/images/sin-avatar.png'
-                                                        : BASE_STATIC . 'assets/avatar_profesores/' . $profe['avatar_profesor'];
+                                                        : BASE_STATIC . 'assets/avatar_profesores/' . $profeDetalles['avatar_profesor'];
                                                     ?>
-                                                    <img src="<?= $avatar; ?>" alt="<?= $profe['profesor_nombre']; ?>" style="max-width: 35px;">
+                                                    <img src="<?= $avatar; ?>" alt="<?= $profeDetalles['nombre']; ?>" style="max-width: 100px;">
                                                 </label>
                                             </div>
                                         </div>

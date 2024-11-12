@@ -3,7 +3,7 @@
 
 <head>
     <?php
-    include_once('../../config.php');
+    include_once '../../settings/config.php';
     include_once(BASE_PATH_COMPONENTS . '/head.php');
     ?>
 </head>
@@ -92,10 +92,16 @@
                                                 </div>
 
                                                 <div class="row mb-5">
-                                                    <div class="col-md-6 fileUpload">
-                                                        <label for="perfil_estudiante">Imagen de Perfil
-                                                            <input type="file" name="perfil_estudiante" id="perfil_estudiante" class="show-for-sr small upload" accept=".png, .jpg, .jpeg">
-                                                        </label>
+                                                    <div class="col-md-6">
+                                                        <div class="file-input">
+                                                            <label for="perfil_estudiante" class="mb-2">Imagen de Perfil</label>
+                                                            <br>
+                                                            <input type="file" name="perfil_estudiante" id="file-input-avatar" class="file-input__input" accept=".png, .jpg, .jpeg" />
+                                                            <label class="file-input__label" for="file-input-avatar">
+                                                                <i class="fa fa-cloud-upload"></i> &nbsp;
+                                                                <span>Subir Imagen</span>
+                                                            </label>
+                                                        </div>
                                                     </div>
                                                     <?php
                                                     if ($edit) { ?>
@@ -103,10 +109,10 @@
                                                             <label>Imagen actual<br>
                                                                 <?php
                                                                 $avatar = empty($estudianteDetalles['perfil_estudiante'])
-                                                                    ? '../../assets/images/sin-avatar.png'
-                                                                    : '../../assets/avatar_estudiantes/' . $estudianteDetalles['perfil_estudiante'];
+                                                                    ? BASE_STATIC . 'assets/images/sin-avatar.png'
+                                                                    : BASE_STATIC . 'assets/avatar_estudiantes/' . $estudianteDetalles['perfil_estudiante'];
                                                                 ?>
-                                                                <img src="<?= $avatar; ?>" alt="<?= $estudianteDetalles['perfil_estudiante']; ?>" style="max-width: 50px;">
+                                                                <img src="<?= $avatar; ?>" alt="<?= $estudianteDetalles['perfil_estudiante']; ?>" style="max-width: 100px;">
                                                             </label>
                                                         </div>
                                                     <?php } ?>

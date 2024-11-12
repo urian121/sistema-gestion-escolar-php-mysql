@@ -3,7 +3,7 @@
 
 <head>
     <?php
-    include_once('../../config.php');
+    include_once '../../settings/config.php';
     include_once(BASE_PATH_COMPONENTS . '/head.php');
     ?>
 </head>
@@ -47,7 +47,7 @@
                                                                 <th>Email</th>
                                                                 <th>Fecha Nacimiento</th>
                                                                 <th>Dirección</th>
-                                                                <th>Perfil</th>
+                                                                <th class="text-center">Perfil</th>
                                                                 <th>Curso</th>
                                                                 <th>Acciones</th>
                                                             </tr>
@@ -61,7 +61,7 @@
                                                                     <td><?= $estudiante['email_estudiante']; ?></td>
                                                                     <td><?= $estudiante['fecha_nacimiento']; ?></td>
                                                                     <td><?= $estudiante['direccion_estudiante']; ?></td>
-                                                                    <td>
+                                                                    <td class="text-center">
                                                                         <?php
                                                                         $avatar = empty($estudiante['perfil_estudiante'])
                                                                             ? BASE_STATIC . 'assets/images/sin-avatar.png'

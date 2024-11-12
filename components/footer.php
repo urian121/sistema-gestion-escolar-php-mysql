@@ -1,5 +1,4 @@
  <script src="<?php echo BASE_STATIC; ?>assets/vendors/js/vendor.bundle.base.js?v=<?php echo mt_rand(); ?>"></script>
-
  <script src="<?php echo BASE_STATIC; ?>assets/vendors/chart.js/chart.umd.js?v=<?php echo mt_rand(); ?>"></script>
  <script src="<?php echo BASE_STATIC; ?>assets/vendors/flot/jquery.flot.js?v=<?php echo mt_rand(); ?>"></script>
  <script src="<?php echo BASE_STATIC; ?>assets/vendors/flot/jquery.flot.resize.js?v=<?php echo mt_rand(); ?>"></script>
@@ -58,14 +57,9 @@
          const baseUrl = "<?php echo BASE_STATIC; ?>";
          const navLinks = document.querySelectorAll('.nav-link');
 
-         console.log("Current Path:", currentPath); // Para verificar el valor
-
          navLinks.forEach(link => {
              // Combina el BASE_STATIC con el href del enlace para obtener la URL completa
              const linkPath = new URL(link.getAttribute('href'), baseUrl).pathname;
-
-             console.log("Link Path:", linkPath); // Para verificar el valor
-
              // Compara el linkPath con el currentPath
              if (currentPath === linkPath || currentPath === linkPath + '/') {
                  link.classList.add('active'); // Agrega clase al enlace activo

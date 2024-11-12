@@ -3,7 +3,7 @@
 
 <head>
     <?php
-    include_once('../../config.php');
+    include_once '../../settings/config.php';
     include_once(BASE_PATH_COMPONENTS . '/head.php');
     ?>
 </head>

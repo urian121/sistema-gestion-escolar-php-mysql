@@ -1,5 +1,5 @@
 <?php
-include_once('../../config.php');
+include_once '../../settings/config.php';
 include_once(SETTINGS_BD);
 $json_data = file_get_contents("php://input");
 $data = json_decode($json_data, true);

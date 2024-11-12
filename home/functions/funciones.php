@@ -1,5 +1,5 @@
   <?php
-  include_once('../../config.php');
+  include_once '../../settings/config.php';
   
   function getMateriasCursoProfesor($servidor, $id_profesor, $id_curso)
   {

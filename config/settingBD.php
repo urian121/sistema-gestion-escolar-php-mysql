@@ -1,24 +1,16 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
-$ModoDesarrollo = true;
-if ($ModoDesarrollo) {
-    $host = "localhost";
-    $usuario = "root";
-    $contrasena = "";
-    $base_de_datos = "bd_sistema_gestion_escolar";
-} else {
-    $host = "bases.edumedia.tech";
-    $usuario = "edumedia_adm_tb";
-    $contrasena = "TboardAdmin-123*";
-    $base_de_datos = "edumedia_adm_tb";
-}
+// Conexión a la base de datos usando las constantes definidas
+$servidor = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
-$servidor = new mysqli($host, $usuario, $contrasena, $base_de_datos);
+// Verificar conexión
 if ($servidor->connect_error) {
     die("Error de conexión: " . $servidor->connect_error);
+}
+
+// Configurar el charset a utf8mb4 para aceptar caracteres especiales
+if (!$servidor->set_charset("utf8mb4")) {
+    die("Error cargando el conjunto de caracteres utf8mb4: " . $servidor->error);
 } else {
-    //echo "Conexión exitosa";
+    //echo "Conexión exitosa con charset utf8mb4";
 }
