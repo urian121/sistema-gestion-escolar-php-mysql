@@ -9,7 +9,8 @@
 
 <body>
   <?php
-  include(BASE_PATH_COMPONENTS . '/loader.html'); ?>
+  include(BASE_PATH_COMPONENTS . '/loader.html');
+  ?>
 
   <div class="container-scroller">
     <?php include(BASE_PATH_COMPONENTS . '/sidebar.php'); ?>

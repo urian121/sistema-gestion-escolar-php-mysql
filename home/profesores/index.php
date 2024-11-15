@@ -11,9 +11,10 @@
 <body>
     <?php
     include(BASE_PATH_COMPONENTS . '/loader.html');
-
     include_once(SETTINGS_BD);
-    include_once(BASE_PATH . "home/functions/funciones.php");
+    include_once(COMPONENTES_GLOBALES);
+    include_once(BASE_CONTROLLER_PROFESORES);
+
     $profesores = getProfesores($servidor);
 
     $edit = isset($_GET['id_curso']);
@@ -72,14 +73,14 @@
                                                                         <img src="<?= $avatar; ?>" alt="<?= $profe['profesor_nombre']; ?>" style="max-width: 35px;">
                                                                     </td>
                                                                     <td width="10%">
-                                                                        <a class="btn btn-inverse-success btn-sm" title="Detalles del Profesor" href="./detalles.php?profe=<?= $profe['profesor_id'] ?>" class="button small" aria-label="Editar Materia <?= $profe['profesor_nombre'] ?>">
-                                                                            <i class="fa fa-paper-plane-o"></i> Detalles
+                                                                        <a title="Detalles del Profesor" class="btn btn-inverse-success btn-sm" title="Detalles del Profesor" href="./detalles.php?profe=<?= $profe['profesor_id'] ?>" class="button small" aria-label="Editar Materia <?= $profe['profesor_nombre'] ?>">
+                                                                            <i class="fa fa-paper-plane-o"></i>
                                                                         </a>
-                                                                        <a class="btn btn-inverse-primary btn-sm" href="./add_profe.php?edit_profe=<?= $profe['profesor_id'] ?>" class="button small" aria-label="Editar Materia <?= $profe['profesor_nombre'] ?>">
-                                                                            <i class="fa fa-edit"></i> Editar
+                                                                        <a title="Editar Profesor" class="btn btn-inverse-primary btn-sm" href="./add_profe.php?edit_profe=<?= $profe['profesor_id'] ?>" class="button small" aria-label="Editar Materia <?= $profe['profesor_nombre'] ?>">
+                                                                            <i class="fa fa-edit"></i>
                                                                         </a>
-                                                                        <a class="btn btn-inverse-warning btn-sm" href="./asignacion.php?profesor=<?= $profe['profesor_id'] ?>" class="button small warning" aria-label="Asignar Nuevo Curso <?= $profe['profesor_nombre'] ?>">
-                                                                            <i class="fa fa-plus-circle"></i> Asignar Materia
+                                                                        <a title="Asignar Materia" class="btn btn-inverse-warning btn-sm" href="./asignacion.php?profesor=<?= $profe['profesor_id'] ?>" class="button small warning" aria-label="Asignar Nuevo Curso <?= $profe['profesor_nombre'] ?>">
+                                                                            <i class="fa fa-plus-circle"></i>
                                                                         </a>
                                                                     </td>
                                                                 </tr>

@@ -25,9 +25,6 @@ define('DB_NAME', 'bd_sistema_gestion_escolar');
 define('DB_USER', 'root');
 define('DB_PASSWORD', '');
 
-
-
-
 // ----------------------------
 // Configuración de las rutas
 // ----------------------------
@@ -38,11 +35,27 @@ define('BASE_HOME', 'http://localhost/' . NAME_APP . '/');
 define('BASE_PATH_COMPONENTS', BASE_PATH . '/components');
 define('BASE_STATIC', 'http://' . $_SERVER['SERVER_NAME'] . '/' . NAME_APP . '/');
 define('SETTINGS_BD', BASE_PATH . 'config/settingBD.php');
-define('BASE_ACTIONS', 'http://' . $_SERVER['SERVER_NAME'] . '/' . NAME_APP . '/home/functions/actionsBD.php');
 
 define('BASE_PATH_AVATAR_PROFESORES', BASE_PATH . '/assets/avatar_profesores');
 define('BASE_PATH_AVATAR_ESTUDIANTES', BASE_PATH . '/assets/avatar_estudiantes');
 
+// -------------------------------
+// Lista de Bases Controllers ----
+// -------------------------------
+define('CONTROLLER_GLOBAL', BASE_PATH . 'controllers/ControllerGlobal.php');
+define('BASE_CONTROLLER_MATERIAS', BASE_PATH . 'controllers/ControllerMaterias.php');
+define('BASE_CONTROLLER_PROFESORES', BASE_PATH . 'controllers/ControllerProfesores.php');
+define('BASE_CONTROLLER_ESTUDIANTES', BASE_PATH . 'controllers/ControllerEstudiantes.php');
+define('BASE_CONTROLLER_CURSOS', BASE_PATH . 'controllers/ControllerCursos.php');
+define('COMPONENTES_GLOBALES', BASE_PATH . 'components/components.php');
+
+// -------------------------------
+// Rutas Controllers POST --------
+// -------------------------------
+define('POST_FORM_CURSO', 'http://' . $_SERVER['SERVER_NAME'] . '/' . NAME_APP . '/controllers/ControllerCursos.php');
+define('POST_FORM_MATERIA', 'http://' . $_SERVER['SERVER_NAME'] . '/' . NAME_APP . '/controllers/ControllerMaterias.php');
+define('POST_FORM_PROFESOR', 'http://' . $_SERVER['SERVER_NAME'] . '/' . NAME_APP . '/controllers/ControllerProfesores.php');
+define('POST_FORM_ESTUDIANTE', 'http://' . $_SERVER['SERVER_NAME'] . '/' . NAME_APP . '/controllers/ControllerEstudiantes.php');
 
 // ----------------------------
 // Configuración de zona horaria

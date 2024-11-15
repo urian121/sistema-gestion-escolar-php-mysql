@@ -12,7 +12,8 @@
     <?php
     include(BASE_PATH_COMPONENTS . '/loader.html');
     include_once(SETTINGS_BD);
-    include_once(BASE_PATH . "home/functions/funciones.php");
+    include_once(COMPONENTES_GLOBALES);
+    include_once(BASE_CONTROLLER_PROFESORES);
 
     $edit = false;
     if (isset($_GET['edit_profe']) || !empty($_GET['edit_profe'])) {
@@ -44,7 +45,7 @@
                                                 <hr>
                                             </h2>
 
-                                            <form method="POST" method="POST" action="<?= BASE_ACTIONS ?>" autocomplete="off" enctype="multipart/form-data">
+                                            <form method="POST" method="POST" action="<?= POST_FORM_PROFESOR; ?>" autocomplete="off" enctype="multipart/form-data">
                                                 <input type="hidden" name="action" value="<?= $edit ? 'editProfesor' : 'addProfesor' ?>">
                                                 <?php
                                                 if ($edit): ?>

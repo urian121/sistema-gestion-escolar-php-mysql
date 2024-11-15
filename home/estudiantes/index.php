@@ -12,7 +12,9 @@
     <?php
     include(BASE_PATH_COMPONENTS . '/loader.html');
     include_once(SETTINGS_BD);
-    include_once(BASE_PATH . "home/functions/funciones.php");
+    include_once(COMPONENTES_GLOBALES);
+    include_once(BASE_CONTROLLER_ESTUDIANTES);
+
     $estudiantes = getEstudiantes($servidor);
 
     $edit = isset($_GET['id_curso']);
@@ -72,7 +74,7 @@
                                                                     <td><?= $estudiante['grado'] . ' - ' . $estudiante['jornada'] . ' - ' . $estudiante['seccion']; ?></td>
                                                                     <td class="text-center">
                                                                         <a class="btn btn-inverse-primary btn-sm" title="Detalles del Estudiante" href="./add.php?id_estudiante=<?= $estudiante['id_estudiante'] ?>" class="button small" aria-label="Editar Estudiante <?= $estudiante['nombre_estudiante'] ?>">
-                                                                            <i class="fa fa-edit"></i> Editar
+                                                                            <i class="fa fa-edit"></i>
                                                                         </a>
                                                                     </td>
                                                                 </tr>

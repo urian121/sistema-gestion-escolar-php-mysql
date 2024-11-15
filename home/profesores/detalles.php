@@ -12,8 +12,9 @@
     <?php
     include(BASE_PATH_COMPONENTS . '/loader.html');
     include_once(SETTINGS_BD);
-    include_once(BASE_PATH . "home/functions/funciones.php");
-
+    include_once(COMPONENTES_GLOBALES);
+    include_once(BASE_CONTROLLER_PROFESORES);
+    
     if (isset($_GET['profe']) || !empty($_GET['profe'])) {
         $profeDetalles = getProfesor($servidor, $_GET['profe']) ?? [];
     } else {

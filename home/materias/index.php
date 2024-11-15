@@ -12,7 +12,8 @@
     <?php
     include(BASE_PATH_COMPONENTS . '/loader.html');
     include_once(SETTINGS_BD);
-    include_once(BASE_PATH . "home/functions/funciones.php");
+    include_once(COMPONENTES_GLOBALES);
+    include_once(BASE_CONTROLLER_MATERIAS);
 
     $materias = getMaterias($servidor);
 
@@ -41,7 +42,7 @@
                                                 <hr>
                                             </h2>
 
-                                            <form class="forms-sample" method="POST" action="<?= BASE_ACTIONS ?>" autocomplete="off">
+                                            <form class="forms-sample" method="POST" action="<?= POST_FORM_MATERIA; ?>" autocomplete="off">
                                                 <input type="hidden" name="action" value="<?= $edit ? 'editMateria' : 'addMateria' ?>">
                                                 <input type="hidden" name="id_materia" value="<?= $edit ? $materiDetalles['id_materia'] : '' ?>">
                                                 <div class="form-group">
@@ -52,7 +53,8 @@
                                                     <button type="submit" class="btn btn-primary me-2">
                                                         <?= $edit ? 'Guardar Cambios' : 'Crear NuevaMateria' ?>
                                                     </button>
-                                                    <?php echo btn_cancelar(BASE_HOME); ?>
+                                                    <?php echo btn_cancelar(BASE_HOME);
+                                                    ?>
                                                 </div>
                                             </form>
                                         </div>
@@ -78,7 +80,7 @@
                                                                 <td><?= $materia['nombre_materia']; ?></td>
                                                                 <td width="10%" class="text-center">
                                                                     <a class="btn btn-inverse-primary btn-sm" href="./?id_materia=<?= $materia['id_materia'] ?>" class="button small" aria-label="Editar Materia <?= $materia['nombre_materia'] ?>">
-                                                                        <i class="fa fa-edit"></i> Editar
+                                                                        <i class="fa fa-edit"></i>
                                                                     </a>
                                                                 </td>
                                                             </tr>

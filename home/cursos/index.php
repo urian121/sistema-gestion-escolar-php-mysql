@@ -12,7 +12,9 @@
     <?php
     include(BASE_PATH_COMPONENTS . '/loader.html');
     include_once(SETTINGS_BD);
-    include_once(BASE_PATH . "/home/functions/funciones.php");
+    include_once(COMPONENTES_GLOBALES);
+    include_once(BASE_CONTROLLER_CURSOS);
+
 
     $cursos = getCursos($servidor);
     $edit = isset($_GET['id_curso']);
@@ -40,7 +42,7 @@
                                                 <hr>
                                             </h2>
 
-                                            <form class="forms-sample" method="POST" action="<?= BASE_ACTIONS ?>" autocomplete="off">
+                                            <form class="forms-sample" method="POST" action="<?= POST_FORM_CURSO; ?>" autocomplete="off">
                                                 <input type="hidden" name="action" value="<?= $edit ? 'editCurso' : 'addCurso' ?>">
                                                 <input type="hidden" name="id_curso" value="<?= $edit ? $cursoDetalles['id_curso'] : '' ?>">
                                                 <div class="form-group">
@@ -92,7 +94,7 @@
                                                                 <td><?= $curso['seccion']; ?></td>
                                                                 <td width="10%" class="text-center">
                                                                     <a class="btn btn-inverse-primary btn-sm" href=" ./?id_curso=<?= $curso['id_curso'] ?>" class="button small" aria-label="Editar Curso <?= $curso['grado'] ?>">
-                                                                        <i class="fa fa-edit"></i> Editar
+                                                                        <i class="fa fa-edit"></i>
                                                                     </a>
                                                                 </td>
                                                             </tr>

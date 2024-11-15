@@ -12,7 +12,9 @@
     <?php
     include(BASE_PATH_COMPONENTS . '/loader.html');
     include_once(SETTINGS_BD);
-    include_once(BASE_PATH . "home/functions/funciones.php");
+    include_once(COMPONENTES_GLOBALES);
+    include_once(BASE_CONTROLLER_ESTUDIANTES);
+    include_once(BASE_CONTROLLER_CURSOS);
 
     $edit = isset($_GET['id_estudiante']);
     $estudianteDetalles = $edit ? getEstudiante($servidor, $_GET['id_estudiante']) : [];
@@ -36,20 +38,20 @@
                                                 <hr>
                                             </h2>
 
-                                            <form method="POST" action="<?= BASE_ACTIONS ?>" autocomplete="off" enctype="multipart/form-data">
+                                            <form method="POST" action="<?= POST_FORM_ESTUDIANTE; ?>" autocomplete="off" enctype="multipart/form-data">
                                                 <input type="hidden" name="action" value="<?= $edit ? 'editEstudiante' : 'addEstudiante' ?>">
                                                 <input type="hidden" name="id_estudiante" value="<?= $edit ? $estudianteDetalles['id_estudiante'] : '' ?>">
 
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="Nombre del Estudiante">Nombre del Estudiante</label>
+                                                            <label for="Nombre del Estudiante">Nombre</label>
                                                             <input type="text" name="nombre_estudiante" value="<?= $edit ? $estudianteDetalles['nombre_estudiante'] : '' ?>" required class="form-control">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="Apellido del Estudiante">Apellido del Estudiante</label>
+                                                            <label for="Apellido del Estudiante">Apellido</label>
                                                             <input type="text" name="apellido_estudiante" value="<?= $edit ? $estudianteDetalles['apellido_estudiante'] : '' ?>" required class="form-control">
                                                         </div>
                                                     </div>
@@ -57,7 +59,7 @@
                                                 <div class="row">
                                                     <div class="col-md-8">
                                                         <div class="form-group">
-                                                            <label for="Email del Estudiante">Email del Estudiante</label>
+                                                            <label for="Email del Estudiante">Email</label>
                                                             <input type="email" name="email_estudiante" value="<?= $edit ? $estudianteDetalles['email_estudiante'] : '' ?>" class="form-control">
                                                         </div>
                                                     </div>
@@ -71,7 +73,7 @@
                                                 <div class="row">
                                                     <div class="col-md-8">
                                                         <div class="form-group">
-                                                            <label for="Dirección del Estudiante">Dirección del Estudiante</label>
+                                                            <label for="Dirección del Estudiante">Dirección</label>
                                                             <input type="text" name="direccion_estudiante" value="<?= $edit ? $estudianteDetalles['direccion_estudiante'] : '' ?>" required class="form-control">
                                                         </div>
                                                     </div>

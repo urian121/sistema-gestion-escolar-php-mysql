@@ -9,16 +9,7 @@
 </head>
 
 <body>
-    <?php
-    include(BASE_PATH_COMPONENTS . '/loader.html');
-    include_once(SETTINGS_BD);
-    include_once(BASE_PATH . "home/functions/funciones.php");
-
-    $cursos = getCursos($servidor);
-
-    $edit = isset($_GET['id_curso']);
-    $cursoDetalles = $edit ? getCurso($servidor, $_GET['id_curso']) : [];
-    ?>
+    <?php include(BASE_PATH_COMPONENTS . '/loader.html');  ?>
 
     <div class="container-scroller">
         <?php include(BASE_PATH_COMPONENTS . '/sidebar.php'); ?>
@@ -31,78 +22,10 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col-md-4">
-                                            <?php if ($edit):
-                                                echo btn_volver();
-                                            endif; ?>
-
-                                            <h2 class="mt-3 text-center mb-5">
-                                                <?= $edit ? 'Editar Curso' : 'Registrar Nuevo Curso' ?>
-                                                <hr>
-                                            </h2>
-
-                                            <form class="forms-sample" method="POST" action="<?= BASE_ACTIONS ?>" autocomplete="off">
-                                                <input type="hidden" name="action" value="<?= $edit ? 'editCurso' : 'addCurso' ?>">
-                                                <input type="hidden" name="id_curso" value="<?= $edit ? $cursoDetalles['id_curso'] : '' ?>">
-                                                <div class="form-group">
-                                                    <label for="Grado del Curso">Grado del Curso</label>
-                                                    <input type="text" name="grado" value="<?= $edit ? $cursoDetalles['grado'] : '' ?>" required class="form-control">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="jornada">Jornada del Curso</label>
-                                                    <select name="jornada" class="form-select">
-                                                        <option value="" disabled selected>Seleccione una Jornada</option>
-                                                        <option value="Mañana" <?= $edit && $cursoDetalles['jornada'] == 'Mañana' ? 'selected' : '' ?>>Mañana</option>
-                                                        <option value="Tarde" <?= $edit && $cursoDetalles['jornada'] == 'Tarde' ? 'selected' : '' ?>>Tarde</option>
-                                                        <option value="Nocturna" <?= $edit && $cursoDetalles['jornada'] == 'Nocturna' ? 'selected' : '' ?>>Nocturna</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="seccion">Sección del Curso</label>
-                                                    <input type="text" name="seccion" value="<?= $edit ? $cursoDetalles['seccion'] : '' ?>" required class="form-control">
-                                                </div>
-
-                                                <div class="d-grid gap-2 d-md-flex justify-content-center">
-                                                    <button type="submit" class="btn btn-primary me-2"> <?= $edit ? 'Guardar Cambios' : 'Crear Nuevo Curso' ?></button>
-                                                    <?php echo btn_cancelar(BASE_HOME); ?>
-                                                </div>
-                                            </form>
+                                        <div class="col-md-12">
+                                            <h2 class="text-center">Pagina 1</h2>
                                         </div>
-
-                                        <!-- Columna de lista de cursos -->
-                                        <div class="col-md-8">
-                                            <h2 class="text-center">Lista de Cursos Total (<?= count($cursos); ?>)</h2>
-                                            <hr>
-                                            <div class="table-responsive">
-                                                <table id="tbl_cursos" class="table table-bordered table-striped table-hover">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>#</th>
-                                                            <th>Grado del Curso</th>
-                                                            <th>Jornada</th>
-                                                            <th>Sección</th>
-                                                            <th>Acciones</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <?php foreach ($cursos as $curso): ?>
-                                                            <tr <?= $edit && $curso['id_curso'] == $cursoDetalles['id_curso'] ? 'style="background-color: #c2c2c2;"' : '' ?>>
-                                                                <td width="5%" class="text-center"><?= $curso['id_curso']; ?></td>
-                                                                <td><?= $curso['grado']; ?></td>
-                                                                <td><?= $curso['jornada']; ?></td>
-                                                                <td><?= $curso['seccion']; ?></td>
-                                                                <td width="10%" class="text-center">
-                                                                    <a class="btn btn-inverse-primary btn-sm" href=" ./?id_curso=<?= $curso['id_curso'] ?>" class="button small" aria-label="Editar Curso <?= $curso['grado'] ?>">
-                                                                        <i class="fa fa-edit"></i> Editar
-                                                                    </a>
-                                                                </td>
-                                                            </tr>
-                                                        <?php endforeach; ?>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div> <!-- Fin de la fila para las dos columnas -->
+                                    </div>
                                 </div>
                             </div>
                         </div>
