@@ -1,11 +1,11 @@
-const radios = document.getElementsByName("cursos");
+const radios = document.getElementsByName("grados");
 if (radios) {
   radios.forEach((radio) => {
-    radio.addEventListener("change", () => procesarCursoSeleccionado(radios));
+    radio.addEventListener("change", () => procesarGradosSeleccionado(radios));
   });
 }
 
-async function procesarCursoSeleccionado(radios) {
+async function procesarGradosSeleccionado(radios) {
   // Limpia el fondo de todos los elementos
   const listItems = document.querySelectorAll(
     "ul.list-group.list-group-flush li"
@@ -43,10 +43,10 @@ async function procesarAsignacion(event) {
   event.preventDefault();
 
   // Selecciona el radio button marcado
-  const cursoSeleccionado = document.querySelector(
-    'input[name="cursos"]:checked'
+  const gradosSeleccionado = document.querySelector(
+    'input[name="grados"]:checked'
   );
-  if (!cursoSeleccionado) {
+  if (!gradosSeleccionado) {
     alert("Por favor, selecciona al menos un curso.");
     return false;
   }
@@ -65,7 +65,7 @@ async function procesarAsignacion(event) {
   try {
     const response = await axios.post("recibe_asignacion.php", {
       idMaterias,
-      id_curso: cursoSeleccionado.value,
+      id_curso: gradosSeleccionado.value,
       id_profesor: document.querySelector('input[name="id_profesor"]').value,
     });
 

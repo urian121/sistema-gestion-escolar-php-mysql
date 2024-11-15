@@ -14,7 +14,7 @@
     include_once(SETTINGS_BD);
     include_once(COMPONENTES_GLOBALES);
     include_once(BASE_CONTROLLER_ESTUDIANTES);
-    include_once(BASE_CONTROLLER_CURSOS);
+    include_once(BASE_CONTROLLER_GRADOS);
 
     $edit = isset($_GET['id_estudiante']);
     $estudianteDetalles = $edit ? getEstudiante($servidor, $_GET['id_estudiante']) : [];
@@ -80,11 +80,11 @@
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label for="Curso">Curso</label>
-                                                            <select name="id_curso" class="form-select">
+                                                            <select name="id_grado" class="form-select">
                                                                 <?php
-                                                                $cursos = getCursos($servidor);
-                                                                foreach ($cursos as $curso) : ?>
-                                                                    <option value="<?= $curso['id_curso']; ?>" <?= $edit && $estudianteDetalles['id_curso'] == $curso['id_curso'] ? 'selected' : '' ?>>
+                                                                $grados = getGrados($servidor);
+                                                                foreach ($grados as $curso) : ?>
+                                                                    <option value="<?= $curso['id_grado']; ?>" <?= $edit && $estudianteDetalles['id_grado'] == $curso['id_grado'] ? 'selected' : '' ?>>
                                                                         <?= $curso['grado'] . ' ' . $curso['jornada'] . ' ' . $curso['seccion'] ?>
                                                                     </option>
                                                                 <?php endforeach; ?>

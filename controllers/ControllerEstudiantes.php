@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $email_estudiante = escapeData($_POST['email_estudiante'], $servidor);
             $fecha_nacimiento = escapeData($_POST['fecha_nacimiento'], $servidor);
             $direccion_estudiante = escapeData($_POST['direccion_estudiante'], $servidor);
-            $id_curso = escapeData($_POST['id_curso'], $servidor);
+            $id_grado = escapeData($_POST['id_grado'], $servidor);
             $id_estudiante = $typeAction == "editEstudiante" ? escapeData($_POST['id_estudiante'], $servidor) : null;
 
             $perfil_estudiante = "";
@@ -28,14 +28,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (
                 $typeAction == "addEstudiante"
             ) {
-                $query = "INSERT INTO tbl_estudiantes (nombre_estudiante, apellido_estudiante, email_estudiante, fecha_nacimiento, direccion_estudiante, perfil_estudiante, id_curso) VALUES ('$nombre_estudiante', '$apellido_estudiante', '$email_estudiante', '$fecha_nacimiento', '$direccion_estudiante', '$perfil_estudiante', '$id_curso')";
+                $query = "INSERT INTO tbl_estudiantes (nombre_estudiante, apellido_estudiante, email_estudiante, fecha_nacimiento, direccion_estudiante, perfil_estudiante, id_grado) VALUES ('$nombre_estudiante', '$apellido_estudiante', '$email_estudiante', '$fecha_nacimiento', '$direccion_estudiante', '$perfil_estudiante', '$id_grado')";
             } else {
                 $query = "UPDATE tbl_estudiantes SET 
             nombre_estudiante = '$nombre_estudiante',
             apellido_estudiante = '$apellido_estudiante',
             email_estudiante = '$email_estudiante',
             fecha_nacimiento = '$fecha_nacimiento',
-            id_curso = '$id_curso',
+            id_grado = '$id_grado',
             direccion_estudiante = '$direccion_estudiante'" .
                     ($perfil_estudiante ? ", perfil_estudiante = '$perfil_estudiante'" : "") .
                     " WHERE id_estudiante = '$id_estudiante'";
@@ -50,10 +50,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 function getEstudiantes($servidor)
 {
-    $sql = "SELECT tbl_a.*, tbl_c.* 
+    $sql =
+        "SELECT tbl_a.*, tbl_c.* 
       FROM tbl_estudiantes AS tbl_a
-      INNER JOIN tbl_cursos AS tbl_c 
-      ON tbl_a.id_curso = tbl_c.id_curso";
+      INNER JOIN tbl_grados AS tbl_c 
+      ON tbl_a.id_grado = tbl_c.id_grado";
     $result = $servidor->query($sql);
     $estudiantes = []; // Inicializar el array vacío
     while ($row = $result->fetch_assoc()) {

@@ -60,17 +60,17 @@ function getMateriasProfesor($servidor, $id_profesor)
 function getMateriasPorCursoProfesor($servidor, $id_profesor)
 {
     $sql = "SELECT 
-        c.id_curso, 
+        c.id_grado, 
         c.grado,
         c.jornada, 
         c.seccion,
         COUNT(m.id_materia) AS total_materias
-    FROM tbl_cursos AS c
+    FROM tbl_grados AS c
     LEFT JOIN tbl_profesores_materias AS pm 
-    ON c.id_curso = pm.id_curso 
+    ON c.id_grado = pm.id_grado 
     AND pm.id_profesor = '$id_profesor'
     LEFT JOIN tbl_materias AS m ON m.id_materia = pm.id_materia
-    GROUP BY c.id_curso";
+    GROUP BY c.id_grado";
     $result = $servidor->query($sql);
     $materias = [];
     while ($row = $result->fetch_assoc()) {
@@ -109,26 +109,26 @@ function getProfesor($servidor, $profesor)
 }
 
 
-function getCursosProfesor($servidor, $id_profesor)
+function getGradosProfesor($servidor, $id_profesor)
 {
     $sql = "SELECT 
-      c.id_curso, c.grado,
-      c.jornada, c.seccion FROM tbl_cursos AS c
+      c.id_grado, c.grado,
+      c.jornada, c.seccion FROM tbl_grados AS c
     INNER JOIN tbl_profesores_materias AS pm 
-    ON c.id_curso = pm.id_curso 
+    ON c.id_grado = pm.id_grado 
     WHERE id_profesor = '$id_profesor'";
     $result = $servidor->query($sql);
-    $cursos = [];
+    $grados = [];
     while ($row = $result->fetch_assoc()) {
-        $cursos[] = $row;
+        $grados[] = $row;
     }
-    return $cursos;
+    return $grados;
 }
 
 
-function getMateriasCursoProfesor($servidor, $id_profesor, $id_curso)
+function getMateriasCursoProfesor($servidor, $id_profesor, $id_grado)
 {
-    $sql = "SELECT id_materia FROM tbl_profesores_materias WHERE id_profesor='$id_profesor' AND id_curso='$id_curso'";
+    $sql = "SELECT id_materia FROM tbl_profesores_materias WHERE id_profesor='$id_profesor' AND id_grado='$id_grado'";
     $result = $servidor->query($sql);
     $materias = [];
     while ($row = $result->fetch_assoc()) {

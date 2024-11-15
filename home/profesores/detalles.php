@@ -78,8 +78,8 @@
                                             <ul class="list-group list-group-flush">
                                                 <?php
                                                 $count = 0;
-                                                $cursosProfe = getCursosProfesor($servidor, $profeDetalles['id_profesor']);
-                                                foreach ($cursosProfe as $curso) {
+    $gradosProfe = getGradosProfesor($servidor, $profeDetalles['id_profesor']);
+    foreach ($gradosProfe as $curso) {
                                                     $count++;
                                                     echo '<li class="list-group-item">' .  $count . '. ' . $curso['grado'] . ', ' . $curso['jornada'] . ', ' . $curso['seccion'] . '</li>';
                                                 }

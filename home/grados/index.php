@@ -13,12 +13,12 @@
     include(BASE_PATH_COMPONENTS . '/loader.html');
     include_once(SETTINGS_BD);
     include_once(COMPONENTES_GLOBALES);
-    include_once(BASE_CONTROLLER_CURSOS);
+    include_once(BASE_CONTROLLER_GRADOS);
 
 
-    $cursos = getCursos($servidor);
-    $edit = isset($_GET['id_curso']);
-    $cursoDetalles = $edit ? getCurso($servidor, $_GET['id_curso']) : [];
+    $grados = getGrados($servidor);
+    $edit = isset($_GET['id_grado']);
+    $cursoDetalles = $edit ? getCurso($servidor, $_GET['id_grado']) : [];
     ?>
 
     <div class="container-scroller">
@@ -44,7 +44,7 @@
 
                                             <form class="forms-sample" method="POST" action="<?= POST_FORM_CURSO; ?>" autocomplete="off">
                                                 <input type="hidden" name="action" value="<?= $edit ? 'editCurso' : 'addCurso' ?>">
-                                                <input type="hidden" name="id_curso" value="<?= $edit ? $cursoDetalles['id_curso'] : '' ?>">
+                                                <input type="hidden" name="id_grado" value="<?= $edit ? $cursoDetalles['id_grado'] : '' ?>">
                                                 <div class="form-group">
                                                     <label for="Grado del Curso">Grado</label>
                                                     <input type="text" name="grado" value="<?= $edit ? $cursoDetalles['grado'] : '' ?>" required class="form-control">
@@ -72,10 +72,10 @@
 
                                         <!-- Columna de lista de Grados -->
                                         <div class="col-md-8">
-                                            <h2 class="text-center">Lista de Grados Total (<?= count($cursos); ?>)</h2>
+                                            <h2 class="text-center">Lista de Grados Total (<?= count($grados); ?>)</h2>
                                             <hr>
                                             <div class="table-responsive">
-                                                <table id="tbl_cursos" class="table table-bordered table-striped table-hover">
+                                                <table id="tbl_grados" class="table table-bordered table-striped table-hover">
                                                     <thead>
                                                         <tr>
                                                             <th>#</th>
@@ -86,14 +86,14 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <?php foreach ($cursos as $curso): ?>
-                                                            <tr <?= $edit && $curso['id_curso'] == $cursoDetalles['id_curso'] ? 'style="background-color: #c2c2c2;"' : '' ?>>
-                                                                <td width="5%" class="text-center"><?= $curso['id_curso']; ?></td>
+                                                        <?php foreach ($grados as $curso): ?>
+                                                            <tr <?= $edit && $curso['id_grado'] == $cursoDetalles['id_grado'] ? 'style="background-color: #c2c2c2;"' : '' ?>>
+                                                                <td width="5%" class="text-center"><?= $curso['id_grado']; ?></td>
                                                                 <td><?= $curso['grado']; ?></td>
                                                                 <td><?= $curso['jornada']; ?></td>
                                                                 <td><?= $curso['seccion']; ?></td>
                                                                 <td width="10%" class="text-center">
-                                                                    <a class="btn btn-inverse-primary btn-sm" href=" ./?id_curso=<?= $curso['id_curso'] ?>" class="button small" aria-label="Editar Curso <?= $curso['grado'] ?>">
+                                                                    <a class="btn btn-inverse-primary btn-sm" href=" ./?id_grado=<?= $curso['id_grado'] ?>" class="button small" aria-label="Editar Curso <?= $curso['grado'] ?>">
                                                                         <i class="fa fa-edit"></i>
                                                                     </a>
                                                                 </td>

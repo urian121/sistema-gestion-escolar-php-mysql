@@ -15,11 +15,11 @@
         include_once(BASE_CONTROLLER_PROFESORES);
         include_once(BASE_CONTROLLER_MATERIAS);
 
-        $id_curso = $_REQUEST['id_curso'] ?? NULL;
+        $id_grado = $_REQUEST['id_grado'] ?? NULL;
         $id_profesor = $_REQUEST['id_profesor'] ?? NULL;
 
         // Obtener solo los ids de las materias asignadas al profesor para el curso seleccionado
-        $idsMateriasProfe = getMateriasCursoProfesor($servidor, $id_profesor, $id_curso);
+        $idsMateriasProfe = getMateriasCursoProfesor($servidor, $id_profesor, $id_grado);
         $materias = getMaterias($servidor);
 
         $counter = 0;

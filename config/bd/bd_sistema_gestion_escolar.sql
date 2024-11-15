@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 12-11-2024 a las 21:34:08
+-- Tiempo de generación: 15-11-2024 a las 22:15:24
 -- Versión del servidor: 8.0.30
 -- Versión de PHP: 8.1.10
 
@@ -24,42 +24,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tbl_cursos`
---
-
-CREATE TABLE `tbl_cursos` (
-  `id_curso` int NOT NULL,
-  `grado` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `jornada` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `seccion` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Volcado de datos para la tabla `tbl_cursos`
---
-
-INSERT INTO `tbl_cursos` (`id_curso`, `grado`, `jornada`, `seccion`, `created_at`) VALUES
-(1, 'Primero', 'Mañana', 'A', '2024-11-12 20:42:53'),
-(2, 'Primero', 'Mañana', 'B', '2024-11-12 20:42:53'),
-(3, 'Segundo', 'Mañana', 'A', '2024-11-12 20:42:53'),
-(4, 'Segundo', 'Mañana', 'B', '2024-11-12 20:42:53'),
-(5, 'Tercero', 'Tarde', 'A', '2024-11-12 20:42:53'),
-(6, 'Tercero', 'Tarde', 'B', '2024-11-12 20:42:53'),
-(7, 'Cuarto', 'Mañana', 'A', '2024-11-12 20:42:53'),
-(8, 'Cuarto', 'Mañana', 'B', '2024-11-12 20:42:53'),
-(9, 'Quinto', 'Tarde', 'A', '2024-11-12 20:42:53'),
-(10, 'Quinto', 'Tarde', 'B', '2024-11-12 20:42:53'),
-(11, 'Sexto', 'Mañana', 'A', '2024-11-12 20:42:53'),
-(12, 'Sexto', 'Mañana', 'B', '2024-11-12 20:42:53'),
-(13, 'Séptimo', 'Tarde', 'A', '2024-11-12 20:42:53'),
-(14, 'Séptimo', 'Tarde', 'B', '2024-11-12 20:42:53'),
-(15, 'Octavo', 'Mañana', 'A', '2024-11-12 20:42:53'),
-(16, 'Gradooo', 'Mañana', '56', '2024-11-12 20:59:39');
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `tbl_estudiantes`
 --
 
@@ -67,12 +31,12 @@ CREATE TABLE `tbl_estudiantes` (
   `id_estudiante` int NOT NULL,
   `nombre_estudiante` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `apellido_estudiante` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `email_estudiante` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email_estudiante` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `fecha_nacimiento` date NOT NULL,
   `direccion_estudiante` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `perfil_estudiante` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `perfil_estudiante` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `estado_estudiante` int DEFAULT '1',
-  `id_curso` int DEFAULT NULL,
+  `id_grado` int DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -80,7 +44,7 @@ CREATE TABLE `tbl_estudiantes` (
 -- Volcado de datos para la tabla `tbl_estudiantes`
 --
 
-INSERT INTO `tbl_estudiantes` (`id_estudiante`, `nombre_estudiante`, `apellido_estudiante`, `email_estudiante`, `fecha_nacimiento`, `direccion_estudiante`, `perfil_estudiante`, `estado_estudiante`, `id_curso`, `created_at`) VALUES
+INSERT INTO `tbl_estudiantes` (`id_estudiante`, `nombre_estudiante`, `apellido_estudiante`, `email_estudiante`, `fecha_nacimiento`, `direccion_estudiante`, `perfil_estudiante`, `estado_estudiante`, `id_grado`, `created_at`) VALUES
 (1, 'Juan', 'Pérez', 'juan.perez@example.com', '2008-03-15', 'Calle 1 #23-45', NULL, 1, 1, '2024-11-12 20:42:54'),
 (2, 'María', 'González', 'maria.gonzalez@example.com', '2009-07-20', 'Calle 2 #56-78', NULL, 1, 1, '2024-11-12 20:42:54'),
 (3, 'Pedro', 'Sánchez', 'pedro.sanchez@example.com', '2008-05-30', 'Calle 3 #89-01', NULL, 1, 2, '2024-11-12 20:42:54'),
@@ -100,12 +64,49 @@ INSERT INTO `tbl_estudiantes` (`id_estudiante`, `nombre_estudiante`, `apellido_e
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `tbl_grados`
+--
+
+CREATE TABLE `tbl_grados` (
+  `id_grado` int NOT NULL,
+  `grado` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `jornada` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `seccion` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `tbl_grados`
+--
+
+INSERT INTO `tbl_grados` (`id_grado`, `grado`, `jornada`, `seccion`, `created_at`) VALUES
+(1, 'Primero', 'Mañana', 'A', '2024-11-12 20:42:53'),
+(2, 'Primero', 'Mañana', 'B', '2024-11-12 20:42:53'),
+(3, 'Segundo', 'Mañana', 'A', '2024-11-12 20:42:53'),
+(4, 'Segundo', 'Mañana', 'B', '2024-11-12 20:42:53'),
+(5, 'Tercero', 'Tarde', 'A', '2024-11-12 20:42:53'),
+(6, 'Tercero', 'Tarde', 'B', '2024-11-12 20:42:53'),
+(7, 'Cuarto', 'Mañana', 'A', '2024-11-12 20:42:53'),
+(8, 'Cuarto', 'Mañana', 'B', '2024-11-12 20:42:53'),
+(9, 'Quinto', 'Tarde', 'A', '2024-11-12 20:42:53'),
+(10, 'Quinto', 'Tarde', 'B', '2024-11-12 20:42:53'),
+(11, 'Sexto', 'Mañana', 'A', '2024-11-12 20:42:53'),
+(12, 'Sexto', 'Mañana', 'B', '2024-11-12 20:42:53'),
+(13, 'Séptimo', 'Tarde', 'A', '2024-11-12 20:42:53'),
+(14, 'Séptimo', 'Tarde', 'B', '2024-11-12 20:42:53'),
+(15, 'Octavo', 'Mañana', 'A', '2024-11-12 20:42:53'),
+(16, 'Gradooo', 'Mañana', '56', '2024-11-12 20:59:39'),
+(22, '543544444', 'Tarde', '435', '2024-11-15 22:06:47');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `tbl_materias`
 --
 
 CREATE TABLE `tbl_materias` (
   `id_materia` int NOT NULL,
-  `nombre_materia` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nombre_materia` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -128,7 +129,8 @@ INSERT INTO `tbl_materias` (`id_materia`, `nombre_materia`, `created_at`) VALUES
 (12, 'Música', '2024-11-12 20:42:53'),
 (13, 'Tecnología', '2024-11-12 20:42:53'),
 (14, 'Ética', '2024-11-12 20:42:53'),
-(15, 'Religión', '2024-11-12 20:42:53');
+(15, 'Religión', '2024-11-12 20:42:53'),
+(18, 'mmmm111', '2024-11-15 22:07:02');
 
 -- --------------------------------------------------------
 
@@ -138,11 +140,11 @@ INSERT INTO `tbl_materias` (`id_materia`, `nombre_materia`, `created_at`) VALUES
 
 CREATE TABLE `tbl_profesores` (
   `id_profesor` int NOT NULL,
-  `nombre` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `apellido` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `identificacion` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `especialidad` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `avatar_profesor` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nombre` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `apellido` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `identificacion` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `especialidad` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `avatar_profesor` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -158,14 +160,15 @@ INSERT INTO `tbl_profesores` (`id_profesor`, `nombre`, `apellido`, `identificaci
 (5, 'Marta', 'Cabrera', '147258369', 'Física', '', '2024-11-12 20:42:54'),
 (6, 'David p', 'Hernández', '258369147', 'Química', '6ac90911a450152f0d1e.jpg', '2024-11-12 20:42:54'),
 (7, 'Sofía', 'López', '369258147', 'Inglés', '20877c916ad56c9791df.jpg', '2024-11-12 20:42:54'),
-(8, 'Ricardo', 'Sánchez', '753159486', 'Arte', '', '2024-11-12 20:42:54'),
+(8, 'Ricardo6', 'Sánchez', '753159486', 'Arte', '', '2024-11-12 20:42:54'),
 (9, 'Patricia', 'Salazar', '159753468', 'Música', '', '2024-11-12 20:42:54'),
 (10, 'Felipe', 'Castillo', '321987654', 'Tecnología', '', '2024-11-12 20:42:54'),
 (11, 'Natalia', 'Mena', '654321987', 'Ética', '', '2024-11-12 20:42:54'),
 (12, 'Javier', 'Martínez', '852741963', 'Religión', '', '2024-11-12 20:42:54'),
 (13, 'Diego', 'Gómez', '741852963', 'Deportes', '', '2024-11-12 20:42:54'),
 (14, 'Elena', 'Pérez', '963258741', 'Ciencias Sociales', '', '2024-11-12 20:42:54'),
-(15, 'Marcelo', 'Ríos', '369147258', 'Matemáticas', '', '2024-11-12 20:42:54');
+(15, 'Marcelo', 'Ríos', '369147258', 'Matemáticas', '', '2024-11-12 20:42:54'),
+(20, '66', '66', '6', '6', 'd062d63173f7e6500cfa.png', '2024-11-15 22:07:20');
 
 -- --------------------------------------------------------
 
@@ -177,14 +180,14 @@ CREATE TABLE `tbl_profesores_materias` (
   `id_asignacion` int NOT NULL,
   `id_profesor` int DEFAULT NULL,
   `id_materia` int DEFAULT NULL,
-  `id_curso` int DEFAULT NULL
+  `id_grado` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `tbl_profesores_materias`
 --
 
-INSERT INTO `tbl_profesores_materias` (`id_asignacion`, `id_profesor`, `id_materia`, `id_curso`) VALUES
+INSERT INTO `tbl_profesores_materias` (`id_asignacion`, `id_profesor`, `id_materia`, `id_grado`) VALUES
 (1, 1, 1, 1),
 (2, 1, 2, 2),
 (3, 2, 3, 1),
@@ -206,24 +209,26 @@ INSERT INTO `tbl_profesores_materias` (`id_asignacion`, `id_profesor`, `id_mater
 (20, 6, 8, 2),
 (21, 6, 1, 1),
 (22, 10, 11, 9),
-(23, 10, 12, 9);
+(23, 10, 12, 9),
+(24, 8, 1, 1),
+(25, 8, 4, 1);
 
 --
 -- Índices para tablas volcadas
 --
 
 --
--- Indices de la tabla `tbl_cursos`
---
-ALTER TABLE `tbl_cursos`
-  ADD PRIMARY KEY (`id_curso`);
-
---
 -- Indices de la tabla `tbl_estudiantes`
 --
 ALTER TABLE `tbl_estudiantes`
   ADD PRIMARY KEY (`id_estudiante`),
-  ADD KEY `fk_estudiante_curso` (`id_curso`);
+  ADD KEY `fk_estudiante_curso` (`id_grado`);
+
+--
+-- Indices de la tabla `tbl_grados`
+--
+ALTER TABLE `tbl_grados`
+  ADD PRIMARY KEY (`id_grado`);
 
 --
 -- Indices de la tabla `tbl_materias`
@@ -244,17 +249,11 @@ ALTER TABLE `tbl_profesores_materias`
   ADD PRIMARY KEY (`id_asignacion`),
   ADD KEY `fk_profesor` (`id_profesor`),
   ADD KEY `fk_materia` (`id_materia`),
-  ADD KEY `fk_curso` (`id_curso`);
+  ADD KEY `fk_curso` (`id_grado`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
-
---
--- AUTO_INCREMENT de la tabla `tbl_cursos`
---
-ALTER TABLE `tbl_cursos`
-  MODIFY `id_curso` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_estudiantes`
@@ -263,22 +262,28 @@ ALTER TABLE `tbl_estudiantes`
   MODIFY `id_estudiante` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
+-- AUTO_INCREMENT de la tabla `tbl_grados`
+--
+ALTER TABLE `tbl_grados`
+  MODIFY `id_grado` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
 -- AUTO_INCREMENT de la tabla `tbl_materias`
 --
 ALTER TABLE `tbl_materias`
-  MODIFY `id_materia` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_materia` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_profesores`
 --
 ALTER TABLE `tbl_profesores`
-  MODIFY `id_profesor` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_profesor` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_profesores_materias`
 --
 ALTER TABLE `tbl_profesores_materias`
-  MODIFY `id_asignacion` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_asignacion` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- Restricciones para tablas volcadas
@@ -288,13 +293,13 @@ ALTER TABLE `tbl_profesores_materias`
 -- Filtros para la tabla `tbl_estudiantes`
 --
 ALTER TABLE `tbl_estudiantes`
-  ADD CONSTRAINT `fk_estudiante_curso` FOREIGN KEY (`id_curso`) REFERENCES `tbl_cursos` (`id_curso`) ON DELETE SET NULL ON UPDATE SET NULL;
+  ADD CONSTRAINT `fk_estudiante_curso` FOREIGN KEY (`id_grado`) REFERENCES `tbl_grados` (`id_grado`) ON DELETE SET NULL ON UPDATE SET NULL;
 
 --
 -- Filtros para la tabla `tbl_profesores_materias`
 --
 ALTER TABLE `tbl_profesores_materias`
-  ADD CONSTRAINT `fk_curso` FOREIGN KEY (`id_curso`) REFERENCES `tbl_cursos` (`id_curso`) ON DELETE SET NULL ON UPDATE SET NULL,
+  ADD CONSTRAINT `fk_curso` FOREIGN KEY (`id_grado`) REFERENCES `tbl_grados` (`id_grado`) ON DELETE SET NULL ON UPDATE SET NULL,
   ADD CONSTRAINT `fk_materia` FOREIGN KEY (`id_materia`) REFERENCES `tbl_materias` (`id_materia`) ON DELETE SET NULL ON UPDATE SET NULL,
   ADD CONSTRAINT `fk_profesor` FOREIGN KEY (`id_profesor`) REFERENCES `tbl_profesores` (`id_profesor`) ON DELETE SET NULL ON UPDATE SET NULL;
 COMMIT;

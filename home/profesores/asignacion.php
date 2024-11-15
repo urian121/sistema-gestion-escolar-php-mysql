@@ -3,17 +3,18 @@
 
 <head>
     <?php
-                                                                                    include_once '../../settings/config.php';
+    include_once '../../settings/config.php';
     include_once(BASE_PATH_COMPONENTS . '/head.php');
     ?>
 </head>
 
 <body>
+
     <?php
     include(BASE_PATH_COMPONENTS . '/loader.html');
     include_once(SETTINGS_BD);
-                                                                                    include_once(COMPONENTES_GLOBALES);
-                                                                                    include_once(BASE_CONTROLLER_PROFESORES);
+    include_once(COMPONENTES_GLOBALES);
+    include_once(BASE_CONTROLLER_PROFESORES);
 
     if (!isset($_GET['profesor']) || empty($_GET['profesor'])) {
         echo '<script>window.location = "../index.php";</script>';
@@ -22,7 +23,7 @@
 
     $id_profesor = $_GET['profesor'];
     $profeDetalles = getProfesor($servidor, $id_profesor);
-    $mat_cursos_profe = getMateriasPorCursoProfesor($servidor, $id_profesor);
+    $mat_grados_profe = getMateriasPorCursoProfesor($servidor, $id_profesor);
     ?>
 
     <div class="container-scroller">
@@ -49,12 +50,12 @@
                                                 </h4>
                                                 <ul class="list-group list-group-flush">
                                                     <?php
-                                                    $mat_cursos_profe = getMateriasPorCursoProfesor($servidor, $id_profesor);
-                                                    foreach ($mat_cursos_profe as $index => $curso) : ?>
-                                                        <li class="list-group-item" id="li_curso_<?= $curso['id_curso']; ?>" onclick="document.getElementById('curso_<?= $index; ?>').click();">
+                                                    $mat_grados_profe = getMateriasPorCursoProfesor($servidor, $id_profesor);
+                                                    foreach ($mat_grados_profe as $index => $curso) : ?>
+                                                        <li class="list-group-item" id="li_curso_<?= $curso['id_grado']; ?>" onclick="document.getElementById('curso_<?= $index; ?>').click();">
                                                             <label for="curso_<?= $index; ?>" class="d-flex justify-content-between align-items-center cursor-pointer">
                                                                 <span>
-                                                                    <input class="custom_radio" type="radio" name="cursos" id="curso_<?= $index; ?>" value="<?= $curso['id_curso'] ?>" style="cursor: pointer;">
+                                                                    <input class="custom_radio" type="radio" name="grados" id="curso_<?= $index; ?>" value="<?= $curso['id_grado'] ?>" style="cursor: pointer;">
                                                                     <?= $curso['grado'] . ' ' . $curso['jornada'] . ' ' . $curso['seccion'] ?>
                                                                 </span>
                                                                 <span class="float-end">Matriculas (<?= $curso['total_materias'] ?? 0 ?>)</span>

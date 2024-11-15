@@ -9,7 +9,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo BASE_STATIC; ?>home/cursos/">
+                <a class="nav-link" href="<?php echo BASE_STATIC; ?>home/grados/">
                     <i class="fa fa-book menu-icon"></i>
                     <span class="menu-title">Grados</span>
                 </a>

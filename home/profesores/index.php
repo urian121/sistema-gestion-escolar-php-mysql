@@ -17,8 +17,8 @@
 
     $profesores = getProfesores($servidor);
 
-    $edit = isset($_GET['id_curso']);
-    $cursoDetalles = $edit ? getCurso($servidor, $_GET['id_curso']) : [];
+    $edit = isset($_GET['id_grado']);
+    $cursoDetalles = $edit ? getCurso($servidor, $_GET['id_grado']) : [];
     ?>
 
     <div class="container-scroller">
