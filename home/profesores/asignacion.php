@@ -58,7 +58,7 @@
                                                                     <input class="custom_radio" type="radio" name="grados" id="curso_<?= $index; ?>" value="<?= $curso['id_grado'] ?>" style="cursor: pointer;">
                                                                     <?= $curso['grado'] . ' ' . $curso['jornada'] . ' ' . $curso['seccion'] ?>
                                                                 </span>
-                                                                <span class="float-end">Matriculas (<?= $curso['total_materias'] ?? 0 ?>)</span>
+                                                                <span class="float-end">Matriculas (<span id="total_materias_<?= $curso['id_grado']; ?>"><?= $curso['total_materias'] ?? 0 ?></span>)</span>
                                                             </label>
                                                         </li>
                                                     <?php endforeach; ?>

@@ -13,7 +13,6 @@
  <script src="<?php echo BASE_STATIC; ?>assets/js/todolist.js?v=<?php echo mt_rand(); ?>"></script>
  <script src="<?php echo BASE_STATIC; ?>assets/js/hoverable-collapse.js?v=<?php echo mt_rand(); ?>"></script>
 
-
  <script src="https://cdn.datatables.net/2.0.3/js/dataTables.js"></script>
  <script src="https://cdn.datatables.net/2.0.3/js/dataTables.bootstrap5.js"></script>
 

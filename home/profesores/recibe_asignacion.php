@@ -31,6 +31,6 @@ for ($i = 0; $i < count($id_materias); $i++) {
 }
 
 // Respuesta exitosa
-$response['mensaje'] = "Correcto";
+$response['mensaje'] = "Ok";
 echo json_encode($response);
 exit();

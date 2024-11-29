@@ -132,7 +132,7 @@ function getMateriasCursoProfesor($servidor, $id_profesor, $id_grado)
     $result = $servidor->query($sql);
     $materias = [];
     while ($row = $result->fetch_assoc()) {
-        $materias[] = $row['id_materia'];  // Solo almacenamos el id_materia directamente
+        $materias[] = $row['id_materia']; 
     }
     return $materias;
 }

@@ -16,10 +16,10 @@ async function procesarGradosSeleccionado(radios) {
   });
 
   const radioSeleccionado = [...radios].find((radio) => radio.checked);
-  const id_curso = radioSeleccionado ? radioSeleccionado.value : "";
+  const id_grado = radioSeleccionado ? radioSeleccionado.value : "";
 
-  // Usa el valor de id_curso para encontrar el li correspondiente
-  let li = document.querySelector(`#li_curso_${id_curso}`);
+  // Usa el valor de id_grado para encontrar el li correspondiente
+  let li = document.querySelector(`#li_curso_${id_grado}`);
   if (li) {
     li.style.backgroundColor = "gainsboro";
     li.style.borderRadius = "5px";
@@ -28,7 +28,7 @@ async function procesarGradosSeleccionado(radios) {
   try {
     let id_profesor = document.querySelector('input[name="id_profesor"]').value;
     let divResp = document.querySelector("#cuerpo_materias");
-    let url = `get_materias_profesor.php?id_curso=${id_curso}&id_profesor=${id_profesor}`;
+    let url = `get_materias_profesor.php?id_grado=${id_grado}&id_profesor=${id_profesor}`;
     if (url) {
       $(divResp).load(url, function () {
         console.log("Se han cargado las materias del profesor.");
@@ -57,22 +57,26 @@ async function procesarAsignacion(event) {
   const idMaterias = Array.from(materiasSeleccionadas).map(
     (checkbox) => checkbox.value
   );
+  /*
   if (!idMaterias.length) {
     alert("Por favor, selecciona al menos una materia.");
     return false;
   }
-
+  */
+  console.log(gradosSeleccionado.value);
+  console.log(materiasSeleccionadas.length);
   try {
     const response = await axios.post("recibe_asignacion.php", {
       idMaterias,
-      id_curso: gradosSeleccionado.value,
+      id_grado: gradosSeleccionado.value,
       id_profesor: document.querySelector('input[name="id_profesor"]').value,
     });
 
-    console.log(response.data);
-    if (response.data.mensaje === "Correcto") {
-      alert("Asignacion Correcta");
-      window.location.href = window.location.href;
+    if (response.data.mensaje === "Ok") {
+      console.log("¡La asignación se realizó con éxito!");
+      document.querySelector(
+        `#total_materias_${gradosSeleccionado.value}`
+      ).innerHTML = materiasSeleccionadas.length;
     } else {
       alert("Error en la Asignacion.");
     }
